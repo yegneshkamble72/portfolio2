@@ -857,9 +857,44 @@
         </div>
       </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <!-- About Section -->
 
-      <section id="about" class="min-h-screen py-20 px-4 bg-white">
+      <section id="about" class="min-h-screen py-20 px-4 bg-white ">
         <div class="max-w-6xl mx-auto">
           <h2
             class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16"
@@ -868,7 +903,10 @@
               >About Me</span
             >
           </h2>
-          <div class="grid md:grid-rows-1 gap-12 items-center">
+        </div>
+
+          <div class="grid lg:grid-cols-2 gap-8">
+          <div class="grid md:grid-rows-1 gap-12 items-center  ">
             <div class="space-y-6">
               <p
                 id="aboutDescription"
@@ -905,8 +943,103 @@
               </div>
             </div>
           </div>
+        
+
+
+
+
+
+        <!-- Video Player Column -->
+      <div class="w-100 h-100 order-2 lg:order-1">
+       <div class="relative bg-zinc-900 rounded-2xl overflow-hidden aspect-video shadow-2xl group">
+        
+        <!-- Video Poster -->
+        <div id="video-poster" class="absolute inset-0 bg-gradient-to-br from-zinc-800 via-zinc-900 to-zinc-800 flex items-center justify-center z-10">
+         <div class="text-center">
+          <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-zinc-800 flex items-center justify-center animate-pulse">
+           <svg class="w-12 h-12 text-orange-500" fill="currentColor" viewbox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+           </svg>
+          </div>
+          <p class="text-zinc-400 text-sm">Video Loading...</p>
+         </div>
         </div>
+        
+        <!-- Video Element (MUTED & AUTOPLAY) -->
+        <video id="main-video" class="w-full h-full object-cover" muted playsinline autoplay><source src="ome.mp4" type="video/mp4">
+        </video>
+        
+        <!-- Hidden Progress Bar Timeline -->
+        <div class="absolute bottom-0 left-0 right-0 h-1 bg-zinc-700/50 cursor-pointer hover:h-1.5 transition-all">
+         <div id="progress-fill" class="h-full bg-gradient-to-r from-orange-500 to-orange-400 w-0 transition-all"></div>
+        </div>
+        
+        <!-- Controls Overlay (Hidden by Default, Shows on Hover) -->
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-900 via-zinc-900/50 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity z-20">
+         <div class="flex items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            
+            <!-- Play/Pause --> 
+            
+            <button class="p-2 rounded-lg bg-zinc-800/70 hover:bg-orange-500 transition-colors" id="play-btn" title="Play/Pause (Space)">
+            <svg id="play-icon" class="w-4 h-4 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
+            </svg>
+            <svg id="pause-icon" class="w-4 h-4 text-white hidden" fill="currentColor" viewbox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+            </svg></button> <!-- Mute/Volume --> <button class="p-2 rounded-lg bg-zinc-800/70 hover:bg-orange-500 transition-colors" id="mute-btn" title="Mute/Unmute (M)">
+            <svg id="volume-icon" class="w-4 h-4 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
+            </svg>
+            <svg id="mute-icon" class="w-4 h-4 text-white hidden" fill="currentColor" viewbox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51c.58-.98.93-2.16.93-3.43 0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9z" />
+            </svg></button> <!-- Time Display --> <span class="text-xs text-zinc-300 font-medium min-w-14" id="time-display">0:00 / 0:00</span>
+          </div>
+          <div class="flex items-center gap-2"><!-- Speed Control --> <button class="px-2 py-1 text-xs font-medium rounded bg-zinc-800/70 hover:bg-orange-500 text-white transition-colors" id="speed-btn" title="Playback Speed">1x</button> <!-- Fullscreen --> <button class="p-2 rounded-lg bg-zinc-800/70 hover:bg-orange-500 transition-colors" id="fullscreen-btn" title="Fullscreen (F)">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+            </svg></button>
+          </div>
+         </div>
+        </div>
+       </div>
+       
+       
+       <!-- Video Info Cards -->
+      
+      </div>
+
+      </div>
       </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <!-- Skills Section -->
 
@@ -1292,6 +1425,153 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
+
+
+
+
+
+
+
+
+<script>
+    // Video Player Setup
+    const video = document.getElementById('main-video');
+    const playBtn = document.getElementById('play-btn');
+    const playIcon = document.getElementById('play-icon');
+    const pauseIcon = document.getElementById('pause-icon');
+    const muteBtn = document.getElementById('mute-btn');
+    const volumeIcon = document.getElementById('volume-icon');
+    const muteIcon = document.getElementById('mute-icon');
+    const progressBar = document.querySelector('.group');
+    const progressFill = document.getElementById('progress-fill');
+    const timeDisplay = document.getElementById('time-display');
+    const speedBtn = document.getElementById('speed-btn');
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+    const videoPoster = document.getElementById('video-poster');
+
+    let isPlaying = false;
+    const speeds = [0.5, 0.75, 1, 1.25, 1.5, 2];
+    let currentSpeedIndex = 2;
+
+    // Format time
+    function formatTime(seconds) {
+      if (!seconds || isNaN(seconds)) return '0:00';
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Play/Pause toggle
+    function togglePlay() {
+      if (!video.src || video.src === window.location.href) return;
+      if (isPlaying) {
+        video.play();
+      } else {
+        video.play();
+      }
+    }
+
+    playBtn.addEventListener('click', togglePlay);
+    video.addEventListener('click', togglePlay);
+
+    video.addEventListener('play', () => {
+      isPlaying = true;
+      playIcon.classList.add('hidden');
+      pauseIcon.classList.remove('hidden');
+      videoPoster.classList.add('hidden');
+    });
+
+    video.addEventListener('pause', () => {
+      isPlaying = false;
+      playIcon.classList.remove('hidden');
+      pauseIcon.classList.add('hidden');
+    });
+
+    // Mute toggle
+    muteBtn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      if (video.muted) {
+        volumeIcon.classList.add('hidden');
+        muteIcon.classList.remove('hidden');
+      } else {
+        volumeIcon.classList.remove('hidden');
+        muteIcon.classList.add('hidden');
+      }
+    });
+
+    // Progress bar
+    video.addEventListener('timeupdate', () => {
+      if (video.duration) {
+        const progress = (video.currentTime / video.duration) * 100;
+        progressFill.style.width = `${progress}%`;
+        timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+      }
+    });
+
+    progressBar.addEventListener('click', (e) => {
+      const rect = progressBar.getBoundingClientRect();
+      const pos = (e.clientX - rect.left) / rect.width;
+      video.currentTime = pos * video.duration;
+    });
+
+    // Speed control
+    speedBtn.addEventListener('click', () => {
+      currentSpeedIndex = (currentSpeedIndex + 1) % speeds.length;
+      video.playbackRate = speeds[currentSpeedIndex];
+      speedBtn.textContent = `${speeds[currentSpeedIndex]}x`;
+    });
+
+    // Fullscreen
+    fullscreenBtn.addEventListener('click', () => {
+      const videoContainer = document.querySelector('[aspect-video]').closest('div');
+      if (!document.fullscreenElement) {
+        videoContainer.requestFullscreen().catch(err => console.log(err));
+      } else {
+        document.exitFullscreen();
+      }
+    });
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT') return;
+      switch (e.key) {
+        case ' ':
+        case 'k':
+          e.preventDefault();
+          togglePlay();
+          break;
+        case 'm':
+          video.muted = !video.muted;
+          break;
+        case 'ArrowRight':
+          video.currentTime += 10;
+          break;
+        case 'ArrowLeft':
+          video.currentTime -= 10;
+          break;
+        case 'f':
+          fullscreenBtn.click();
+          break;
+      }
+    });
+
+    
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <script>
       
