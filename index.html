@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yegnesh Kamble</title>
-    <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/hJCHgThF/logo-yk-crop.png">
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://i.ibb.co/hJCHgThF/logo-yk-crop.png"
+    />
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/_sdk/element_sdk.js"></script>
@@ -338,19 +342,37 @@
       }
     </style>
 
-     <style>
-    /* Modal hidden by default */
-    #projectModal {
-      display: none;
-    }
-    /* Show when active */
-    #projectModal.active {
-      display: flex;
-    }
-  </style>
-  
+    <style>
+      /* Modal hidden by default */
+      #projectModal {
+        display: none;
+      }
+      /* Show when active */
+      #projectModal.active {
+        display: flex;
+      }
+    </style>
+
+    <style>
+      .chat-animate {
+        animation: slideUp 0.3s ease forwards;
+      }
+
+      @keyframes slideUp {
+        0% {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    </style>
+
     <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   </head>
+
   <body class="bg-gray-50">
     <!-- Captcha Screen -->
     <div id="captchaContainer" class="captcha-container">
@@ -388,9 +410,14 @@
           <div class="flex justify-between items-center h-16">
             <div class="flex items-center space-x-3">
               <div
-                class="w-10 h-10  rounded-lg flex items-center justify-center"
+                class="w-10 h-10 rounded-lg flex items-center justify-center"
               >
-                <a href="https://ibb.co/vxXj95PJ"><img src="https://i.ibb.co/RpjD8n0C/Chat-GPT-Image-Jan-20-2026-08-56-30-AM.png" alt="Chat-GPT-Image-Jan-20-2026-08-56-30-AM" border="0"></a><br /><br />
+                <a href="https://ibb.co/vxXj95PJ"
+                  ><img
+                    src="https://i.ibb.co/RpjD8n0C/Chat-GPT-Image-Jan-20-2026-08-56-30-AM.png"
+                    alt="Chat-GPT-Image-Jan-20-2026-08-56-30-AM"
+                    border="0" /></a
+                ><br /><br />
               </div>
               <span id="navName" class="text-xl font-bold text-gray-800"
                 >YEGNESH KAMBLE</span
@@ -417,11 +444,21 @@
                 class="nav-link text-gray-700 hover:text-purple-600 font-medium transition-colors"
                 >Projects</a
               >
-              <a href="#contact" class="nav-link text-gray-700 hover:text-purple-600 font-medium transition-colors">Contact</a>
+              <a
+                href="#contact"
+                class="nav-link text-gray-700 hover:text-purple-600 font-medium transition-colors"
+                >Contact</a
+              >
 
-              <a href="#" onclick="openResumeModal(); closeMobileMenu();" class="nav-link w-full h-8 px-6 py-1 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all">Resume</a>
-
-
+              <a
+                href="#"
+                onclick="
+                  openResumeModal();
+                  closeMobileMenu();
+                "
+                class="nav-link w-full h-8 px-6 py-1 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
+                >Resume</a
+              >
             </div>
             <button id="mobileMenuBtn" class="md:hidden hamburger">
               <span></span> <span></span> <span></span>
@@ -444,7 +481,6 @@
               </div>
               <span class="text-xl font-bold text-gray-800">Menu</span>
             </div>
-            
           </div>
           <nav class="space-y-1">
             <a
@@ -507,9 +543,19 @@
             </a>
           </nav>
           <div class="mt-8 pt-6 border-t border-gray-200">
-            <button onclick="openResumeModal(); closeMobileMenu();" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center space-x-2">
+            <button
+              onclick="
+                openResumeModal();
+                closeMobileMenu();
+              "
+              class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center space-x-2"
+            >
               <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20">
-                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                <path
+                  fill-rule="evenodd"
+                  d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                />
               </svg>
               <span>Download Resume</span>
             </button>
@@ -526,7 +572,8 @@
                 <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
                   <path
                     d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                  /></svg>
+                  />
+                </svg>
               </a>
               <a
                 href="https://www.linkedin.com/in/yegnesh-kamble-3a8669211"
@@ -551,32 +598,39 @@
                   /></svg
               ></a>
 
-               <a
+              <a
                 href="https://instagram.com/yegnesh.kamble"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 hover:bg-purple-100 hover:text-purple-600 transition-all">
-              
-               <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+                class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 hover:bg-purple-100 hover:text-purple-600 transition-all"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
               </a>
 
               <a
                 href="https://facebook.com/yegnesh.kamble"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 hover:bg-purple-100 hover:text-purple-600 transition-all">
-              <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+                class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 hover:bg-purple-100 hover:text-purple-600 transition-all"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
               </a>
-
-
-
-
             </div>
           </div>
         </div>
       </div>
       <!-- Secondary Navigation -->
-      <div class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white fixed w-full top-16 z-40 shadow-md">
+      <div
+        class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white fixed w-full top-16 z-40 shadow-md"
+      >
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-12 text-sm">
             <div class="flex items-center space-x-4">
@@ -594,20 +648,17 @@
               href="https://meet.google.com"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center space-x-2 bg-white bg-opacity-20 px-4 py-1 rounded-lg hover:bg-opacity-30 transition-all" >
-              <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24" >
+              class="flex items-center space-x-2 bg-white bg-opacity-20 px-4 py-1 rounded-lg hover:bg-opacity-30 transition-all"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
                 <path
                   d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-.449s-4.252 8.449-11.985 8.449c-7.18 0-12.015-8.449-12.015-8.449s4.446-7.551 12.015-7.551c7.694 0 11.985 7.551 11.985 7.551zm-7 .449c0-2.757-2.243-5-5-5s-5 2.243-5 5 2.243 5 5 5 5-2.243 5-5z"
                 /></svg
               ><span>Live Connect</span>
-            </a> 
-            
+            </a>
           </div>
         </div>
       </div>
-
-      
-
 
       <!-- Side Cart Buttons -->
       <div class="side-cart">
@@ -673,6 +724,7 @@
           </svg>
         </div>
       </div>
+
       <!-- Home Section -->
       <section
         id="home"
@@ -696,6 +748,7 @@
             ></div>
           </div>
         </div>
+
         <!-- Content -->
         <div class="relative z-10 max-w-7xl mx-auto">
           <div
@@ -739,7 +792,7 @@
                   onclick="scrollToSection('projects')"
                   class="group relative bg-white text-purple-900 px-8 py-4 rounded-lg font-semibold overflow-hidden transition-all hover:scale-105 hover:shadow-2xl"
                 >
-                  <span class="relative z-10">View My Work</span>
+                  <span class="relative z-0">View My Work</span>
                   <div
                     class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity"
                   ></div>
@@ -757,6 +810,7 @@
                 </button>
               </div>
             </div>
+
             <!-- Right Side - Visual Element -->
             <div class="relative animate-fadeIn">
               <div class="relative w-full max-w-lg mx-auto">
@@ -832,6 +886,7 @@
               </div>
             </div>
           </div>
+
           <!-- Scroll Indicator -->
           <div
             class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
@@ -855,47 +910,75 @@
               </svg>
             </div>
           </div>
+
+          <!--Chatbot-->
+
+          <!-- Floating Button -->
+          <div
+            onclick="toggleChat()"
+            class="fixed bottom-6 left-6 w-14 h-14 rounded-full bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 flex items-center justify-center text-white text-2xl shadow-2xl z-10 cursor-pointer hover:scale-110 transition"
+          >
+            🤖
+          </div>
+
+          <!-- Chat Box -->
+          <div
+            id="chatBox"
+            class="hidden fixed top-40 bottom-24 left-6 [380px] max-w-[95%] h-[550px] bg-white rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+          >
+            <div
+              class="bg-gradient-to-r from-purple-400 to-indigo-500 text-white p-4 text-center font-semibold text-lg"
+            >
+              YK Official Support
+            </div>
+
+            <div
+              id="messages"
+              class="flex-1 p-4 overflow-y-auto space-y-3 bg-gray-50"
+            ></div>
+
+            <div class="p-4 border-t bg-white space-y-2">
+              <input
+                id="name"
+                type="text"
+                placeholder="Your Name"
+                class="w-full px-3 py-2 border rounded-lg text-sm"
+              />
+
+              <input
+                id="email"
+                type="email"
+                placeholder="Your Email"
+                class="w-full px-3 py-2 border rounded-lg text-sm"
+              />
+
+              <input
+                id="phone"
+                type="text"
+                placeholder="Your Phone"
+                class="w-full px-3 py-2 border rounded-lg text-sm"
+              />
+
+              <textarea
+                id="message"
+                placeholder="Your Message"
+                class="w-full px-3 py-2 border rounded-lg text-sm"
+              ></textarea>
+
+              <button
+                onclick="sendMail()"
+                class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition"
+              >
+                Send Message
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <!-- About Section -->
 
-      <section id="about" class="min-h-screen py-20 px-4 bg-white ">
+      <section id="about" class="min-h-screen py-20 px-4 bg-white">
         <div class="max-w-6xl mx-auto">
           <h2
             class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16"
@@ -906,8 +989,8 @@
           </h2>
         </div>
 
-          <div class="grid lg:grid-cols-2 gap-8">
-          <div class="grid md:grid-rows-1 gap-12 items-center  ">
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div class="grid md:grid-rows-1 gap-12 items-center">
             <div class="space-y-6">
               <p
                 id="aboutDescription"
@@ -944,109 +1027,166 @@
               </div>
             </div>
           </div>
-        
 
+          <!-- Video Player Column -->
+          <div class="w-100 h-100 order-2 lg:order-1">
+            <div
+              class="relative bg-zinc-900 rounded-2xl overflow-hidden aspect-video shadow-2xl group"
+            >
+              <!-- Video Poster -->
+              <div
+                id="video-poster"
+                class="absolute inset-0 bg-gradient-to-br from-zinc-800 via-zinc-900 to-zinc-800 flex items-center justify-center z-10"
+              >
+                <div class="text-center">
+                  <div
+                    class="w-24 h-24 mx-auto mb-4 rounded-full bg-zinc-800 flex items-center justify-center animate-pulse"
+                  >
+                    <svg
+                      class="w-12 h-12 text-orange-500"
+                      fill="currentColor"
+                      viewbox="0 0 24 24"
+                    >
+                      <path
+                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                  <p class="text-zinc-400 text-sm">Video Loading...</p>
+                </div>
+              </div>
 
+              <!-- Video Element (MUTED & AUTOPLAY) -->
+              <video
+                id="main-video"
+                class="w-full h-full object-cover"
+                muted
+                playsinline
+                autoplay
+              >
+                <source src="ome.mp4" type="video/mp4" />
+              </video>
 
+              <!-- Hidden Progress Bar Timeline -->
+              <div
+                class="absolute bottom-0 left-0 right-0 h-1 bg-zinc-700/50 cursor-pointer hover:h-1.5 transition-all"
+              >
+                <div
+                  id="progress-fill"
+                  class="h-full bg-gradient-to-r from-orange-500 to-orange-400 w-0 transition-all"
+                ></div>
+              </div>
 
+              <!-- Controls Overlay (Hidden by Default, Shows on Hover) -->
+              <div
+                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-900 via-zinc-900/50 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity z-20"
+              >
+                <div class="flex items-center justify-between gap-3">
+                  <div class="flex items-center gap-2">
+                    <!-- Play/Pause -->
 
-        <!-- Video Player Column -->
-      <div class="w-100 h-100 order-2 lg:order-1">
-       <div class="relative bg-zinc-900 rounded-2xl overflow-hidden aspect-video shadow-2xl group">
-        
-        <!-- Video Poster -->
-        <div id="video-poster" class="absolute inset-0 bg-gradient-to-br from-zinc-800 via-zinc-900 to-zinc-800 flex items-center justify-center z-10">
-         <div class="text-center">
-          <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-zinc-800 flex items-center justify-center animate-pulse">
-           <svg class="w-12 h-12 text-orange-500" fill="currentColor" viewbox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-           </svg>
+                    <button
+                      class="p-2 rounded-lg bg-zinc-800/70 hover:bg-orange-500 transition-colors"
+                      id="play-btn"
+                      title="Play/Pause (Space)"
+                    >
+                      <svg
+                        id="play-icon"
+                        class="w-4 h-4 text-white"
+                        fill="currentColor"
+                        viewbox="0 0 24 24"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                      <svg
+                        id="pause-icon"
+                        class="w-4 h-4 text-white hidden"
+                        fill="currentColor"
+                        viewbox="0 0 24 24"
+                      >
+                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                      </svg>
+                    </button>
+                    <!-- Mute/Volume -->
+                    <button
+                      class="p-2 rounded-lg bg-zinc-800/70 hover:bg-orange-500 transition-colors"
+                      id="mute-btn"
+                      title="Mute/Unmute (M)"
+                    >
+                      <svg
+                        id="volume-icon"
+                        class="w-4 h-4 text-white"
+                        fill="currentColor"
+                        viewbox="0 0 24 24"
+                      >
+                        <path
+                          d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+                        />
+                      </svg>
+                      <svg
+                        id="mute-icon"
+                        class="w-4 h-4 text-white hidden"
+                        fill="currentColor"
+                        viewbox="0 0 24 24"
+                      >
+                        <path
+                          d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51c.58-.98.93-2.16.93-3.43 0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9z"
+                        />
+                      </svg>
+                    </button>
+                    <!-- Time Display -->
+                    <span
+                      class="text-xs text-zinc-300 font-medium min-w-14"
+                      id="time-display"
+                      >0:00 / 0:00</span
+                    >
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <!-- Speed Control -->
+                    <button
+                      class="px-2 py-1 text-xs font-medium rounded bg-zinc-800/70 hover:bg-orange-500 text-white transition-colors"
+                      id="speed-btn"
+                      title="Playback Speed"
+                    >
+                      1x
+                    </button>
+                    <!-- Fullscreen -->
+                    <button
+                      class="p-2 rounded-lg bg-zinc-800/70 hover:bg-orange-500 transition-colors"
+                      id="fullscreen-btn"
+                      title="Fullscreen (F)"
+                    >
+                      <svg
+                        class="w-4 h-4 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewbox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Video Info Cards -->
           </div>
-          <p class="text-zinc-400 text-sm">Video Loading...</p>
-         </div>
         </div>
-        
-        <!-- Video Element (MUTED & AUTOPLAY) -->
-        <video id="main-video" class="w-full h-full object-cover" muted playsinline autoplay><source src="ome.mp4" type="video/mp4">
-        </video>
-        
-        <!-- Hidden Progress Bar Timeline -->
-        <div class="absolute bottom-0 left-0 right-0 h-1 bg-zinc-700/50 cursor-pointer hover:h-1.5 transition-all">
-         <div id="progress-fill" class="h-full bg-gradient-to-r from-orange-500 to-orange-400 w-0 transition-all"></div>
-        </div>
-        
-        <!-- Controls Overlay (Hidden by Default, Shows on Hover) -->
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-900 via-zinc-900/50 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity z-20">
-         <div class="flex items-center justify-between gap-3">
-          <div class="flex items-center gap-2">
-            
-            <!-- Play/Pause --> 
-            
-            <button class="p-2 rounded-lg bg-zinc-800/70 hover:bg-orange-500 transition-colors" id="play-btn" title="Play/Pause (Space)">
-            <svg id="play-icon" class="w-4 h-4 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
-            </svg>
-            <svg id="pause-icon" class="w-4 h-4 text-white hidden" fill="currentColor" viewbox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-            </svg></button> <!-- Mute/Volume --> <button class="p-2 rounded-lg bg-zinc-800/70 hover:bg-orange-500 transition-colors" id="mute-btn" title="Mute/Unmute (M)">
-            <svg id="volume-icon" class="w-4 h-4 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
-            </svg>
-            <svg id="mute-icon" class="w-4 h-4 text-white hidden" fill="currentColor" viewbox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51c.58-.98.93-2.16.93-3.43 0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9z" />
-            </svg></button> <!-- Time Display --> <span class="text-xs text-zinc-300 font-medium min-w-14" id="time-display">0:00 / 0:00</span>
-          </div>
-          <div class="flex items-center gap-2"><!-- Speed Control --> <button class="px-2 py-1 text-xs font-medium rounded bg-zinc-800/70 hover:bg-orange-500 text-white transition-colors" id="speed-btn" title="Playback Speed">1x</button> <!-- Fullscreen --> <button class="p-2 rounded-lg bg-zinc-800/70 hover:bg-orange-500 transition-colors" id="fullscreen-btn" title="Fullscreen (F)">
-            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-            </svg></button>
-          </div>
-         </div>
-        </div>
-       </div>
-       
-       
-       <!-- Video Info Cards -->
-      
-      </div>
-
-      </div>
       </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       <!-- Skills Section -->
 
       <section id="skills" class="min-h-screen py-20 px-4 bg-gray-50">
         <div class="max-w-6xl mx-auto">
-          <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16">
+          <h2
+            class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16"
+          >
             <span class="border-b-4 border-purple-600 pb-2">My Skills</span>
           </h2>
           <div class="grid md:grid-cols-2 gap-8" id="skillsContainer">
@@ -1055,18 +1195,13 @@
         </div>
       </section>
 
-      
-      
-      
-      
-      
-      
-      
       <!-- Projects Section -->
 
       <section id="projects" class="min-h-screen py-20 px-4 bg-white">
         <div class="max-w-6xl mx-auto">
-          <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16">
+          <h2
+            class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16"
+          >
             <span class="border-b-4 border-purple-600 pb-2">My Projects</span>
           </h2>
           <div class="grid md:grid-cols-3 gap-8" id="projectsContainer">
@@ -1074,46 +1209,53 @@
           </div>
 
           <!-- ===== MODAL ===== -->
-          <div id="projectModal"
-               class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm justify-center items-center z-50 transition">
-            <div class="bg-white w-11/12 sm:w-5/6 md:w-3/4 h-[90vh] rounded-2xl shadow-2xl relative flex flex-col">
+          <div
+            id="projectModal"
+            class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm justify-center items-center z-50 transition"
+          >
+            <div
+              class="bg-white w-11/12 sm:w-5/6 md:w-3/4 h-[90vh] rounded-2xl shadow-2xl relative flex flex-col"
+            >
               <!-- Close Button -->
-              <button onclick="closeProjectModal()"
-                      class="absolute top-3 right-3 text-gray-600 hover:text-red-600 text-3xl font-bold z-10">
+              <button
+                onclick="closeProjectModal()"
+                class="absolute top-3 right-3 text-gray-600 hover:text-red-600 text-3xl font-bold z-10"
+              >
                 ✖
               </button>
-        
+
               <!-- Modal Content -->
               <div class="p-4 flex-shrink-0 border-b">
-                <h2 id="projectModalTitle" class="text-2xl font-bold text-gray-800 text-center"></h2>
+                <h2
+                  id="projectModalTitle"
+                  class="text-2xl font-bold text-gray-800 text-center"
+                ></h2>
               </div>
-        
+
               <div class="flex-1 relative">
                 <!-- Embedded iframe preview -->
-                <iframe id="projectIframe" class="w-full h-full rounded-b-2xl" src="" frameborder="0"></iframe>
+                <iframe
+                  id="projectIframe"
+                  class="w-full h-full rounded-b-2xl"
+                  src=""
+                  frameborder="0"
+                ></iframe>
               </div>
             </div>
           </div>
-
-
         </div>
       </section>
 
-
-
-
-
-
-
-
-
-
-
       <!-- Contact Section -->
 
-      <section id="contact" class="min-h-screen py-20 px-4 bg-gradient-to-br from-purple-50 to-indigo-100">
+      <section
+        id="contact"
+        class="min-h-screen py-20 px-4 bg-gradient-to-br from-purple-50 to-indigo-100"
+      >
         <div class="max-w-6xl mx-auto">
-          <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16">
+          <h2
+            class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16"
+          >
             <span class="border-b-4 border-purple-600 pb-2">Get In Touch</span>
           </h2>
           <div class="grid md:grid-cols-2 gap-12">
@@ -1122,11 +1264,23 @@
               <h3 class="text-2xl font-bold text-gray-800 mb-6">
                 Contact Information
               </h3>
-              <div class="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-md">
-                <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
-                  <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 20 20">
-                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+              <div
+                class="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-md"
+              >
+                <div
+                  class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center"
+                >
+                  <svg
+                    class="w-6 h-6 text-white"
+                    fill="currentColor"
+                    viewbox="0 0 20 20"
+                  >
+                    <path
+                      d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                    />
+                    <path
+                      d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+                    />
                   </svg>
                 </div>
                 <div>
@@ -1140,10 +1294,16 @@
                 class="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-md"
               >
                 <div
-                  class="w-12 h-12  bg-purple-600 rounded-full flex items-center justify-center"
+                  class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center"
                 >
-                  <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 20 20">
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                  <svg
+                    class="w-6 h-6 text-white"
+                    fill="currentColor"
+                    viewbox="0 0 20 20"
+                  >
+                    <path
+                      d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+                    />
                   </svg>
                 </div>
                 <div>
@@ -1154,9 +1314,22 @@
                 </div>
               </div>
 
-               <div class="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-md">
-                <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
-                  <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+              <div
+                class="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-md"
+              >
+                <div
+                  class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center"
+                >
+                  <svg
+                    class="w-6 h-6 text-white"
+                    fill="currentColor"
+                    viewbox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                      clip-rule="evenodd"
+                    />
                   </svg>
                 </div>
                 <div>
@@ -1228,168 +1401,217 @@
               </div>
             </div>
             <!-- Contact Form -->
-<div class="bg-white p-8 rounded-2xl shadow-xl">
-  <form id="contactForm">
-    <div class="mb-6">
-      <label for="name" class="block text-gray-700 font-semibold mb-2">
-        Name
-      </label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        required
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-      />
-    </div>
+            <div class="bg-white p-8 rounded-2xl shadow-xl">
+              <form id="contactForm">
+                <div class="mb-6">
+                  <label
+                    for="name"
+                    class="block text-gray-700 font-semibold mb-2"
+                  >
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  />
+                </div>
 
-    <div class="mb-6">
-      <label for="email" class="block text-gray-700 font-semibold mb-2">
-        Email
-      </label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-      />
-    </div>
+                <div class="mb-6">
+                  <label
+                    for="email"
+                    class="block text-gray-700 font-semibold mb-2"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  />
+                </div>
 
-    <div class="mb-6">
-      <label for="message" class="block text-gray-700 font-semibold mb-2">
-        Message
-      </label>
-      <textarea
-        id="message"
-        name="message"
-        rows="5"
-        required
-        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-      ></textarea>
-    </div>
+                <div class="mb-6">
+                  <label
+                    for="message"
+                    class="block text-gray-700 font-semibold mb-2"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                  ></textarea>
+                </div>
 
-    <button
-      type="submit"
-      class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
-    >
-      Send Message
-    </button>
-  </form>
-</div>
+                <button
+                  type="submit"
+                  class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <!-- Footer -->
 
       <footer class="bg-gray-900 text-white py-12 px-4 relative">
-  <div class="max-w-6xl mx-auto">
-    <div class="grid md:grid-cols-3 gap-8 mb-8">
-      <!-- Quick Links -->
-      <div>
-        <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-        <div class="space-y-2">
-          <a href="#home" class="block hover:text-purple-400 transition-colors">Home</a>
-          <a href="#about" class="block hover:text-purple-400 transition-colors">About</a>
-          <a href="#skills" class="block hover:text-purple-400 transition-colors">Skills</a>
+        <div class="max-w-6xl mx-auto">
+          <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <!-- Quick Links -->
+            <div>
+              <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+              <div class="space-y-2">
+                <a
+                  href="#home"
+                  class="block hover:text-purple-400 transition-colors"
+                  >Home</a
+                >
+                <a
+                  href="#about"
+                  class="block hover:text-purple-400 transition-colors"
+                  >About</a
+                >
+                <a
+                  href="#skills"
+                  class="block hover:text-purple-400 transition-colors"
+                  >Skills</a
+                >
+              </div>
+            </div>
+
+            <!-- More -->
+            <div>
+              <h3 class="text-xl font-bold mb-4">More</h3>
+              <div class="space-y-2">
+                <a
+                  href="#projects"
+                  class="block hover:text-purple-400 transition-colors"
+                  >Projects</a
+                >
+                <a
+                  href="#contact"
+                  class="block hover:text-purple-400 transition-colors"
+                  >Contact</a
+                >
+                <button
+                  onclick="openResumeModal()"
+                  class="block hover:text-purple-400 transition-colors text-left"
+                >
+                  Resume
+                </button>
+              </div>
+            </div>
+
+            <!-- Contact & Social -->
+            <div class="space-y-3">
+              <h3 class="text-xl font-bold mb-4">Contact</h3>
+
+              <!-- Click-to-call phone -->
+              <a
+                href="tel:+917219274312"
+                class="block text-gray-400 hover:text-purple-400 transition-colors"
+              >
+                📞 +91 72192 74312
+              </a>
+
+              <!-- Click-to-email -->
+              <a
+                href="mailto:yegnesh7219@gmail.com"
+                class="block text-gray-400 hover:text-purple-400 transition-colors"
+              >
+                📧 yegnesh7219@gmail.com
+              </a>
+
+              <a
+                href="https://www.google.com/maps?q=Tekadi,+Nagpur,+441404"
+                target="_blank"
+                class="block text-gray-400 hover:text-purple-400 transition-colors"
+              >
+                📍 Tekadi, Nagpur - 441404
+              </a>
+            </div>
+
+            <div class="flex space-x-4 mt-4">
+              <!-- Instagram -->
+              <a
+                href="https://instagram.com/yegnesh.kamble"
+                target="_blank"
+                class="hover:text-pink-500 transition"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 8.2A3.2 3.2 0 1112 8.8a3.2 3.2 0 010 6.4zm4.8-8.9a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0z"
+                  />
+                </svg>
+              </a>
+
+              <!-- Facebook -->
+              <a
+                href="https://facebook.com/yegnesh.kamble"
+                target="_blank"
+                class="hover:text-blue-500 transition"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M22 12a10 10 0 10-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.5l-.4 3h-2.1v7A10 10 0 0022 12z"
+                  />
+                </svg>
+              </a>
+
+              <!-- GitHub -->
+              <a
+                href="https://github.com/yegneshkamble72"
+                target="_blank"
+                class="hover:text-gray-400 transition"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+              </a>
+
+              <!-- Whatsapp -->
+              <a
+                href="https://alvo.chat/5W5a?fbclid=PAdGRjcAMvT8hleHRuA2FlbQIxMQABpzbPk9UGIhE2Nq1N8aIQIJya5YHJOX7pgMl1gVnCon6QNRkuJDD3QLVsSeO__aem_wYtSZhanLIZQYHyoQVxaUw"
+                target="_blank"
+                class="hover:text-green-500 transition"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="border-t border-gray-700 pt-8 text-center">
+            <p class="text-gray-400">
+              © 2026 Yegnesh Kamble. All rights reserved.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- More -->
-      <div>
-        <h3 class="text-xl font-bold mb-4">More</h3>
-        <div class="space-y-2">
-          <a href="#projects" class="block hover:text-purple-400 transition-colors">Projects</a>
-          <a href="#contact" class="block hover:text-purple-400 transition-colors">Contact</a>
-          <button onclick="openResumeModal()" class="block hover:text-purple-400 transition-colors text-left">
-            Resume
-          </button>
-        </div>
-      </div>
-
-     <!-- Contact & Social -->
-      <div class="space-y-3">
-        <h3 class="text-xl font-bold mb-4">Contact</h3>
-      
-        <!-- Click-to-call phone -->
-        <a href="tel:+917219274312" class="block text-gray-400 hover:text-purple-400 transition-colors">
-          📞 +91 72192 74312
-        </a>
-      
-        <!-- Click-to-email -->
-        <a href="mailto:yegnesh7219@gmail.com" class="block text-gray-400 hover:text-purple-400 transition-colors">
-          📧 yegnesh7219@gmail.com
-        </a>
-      
-        <a href="https://www.google.com/maps?q=Tekadi,+Nagpur,+441404" target="_blank"  class="block text-gray-400 hover:text-purple-400 transition-colors">
-         📍 Tekadi, Nagpur - 441404
-        </a>
-      </div>
-
-      <div class="flex space-x-4 mt-4">
-          <!-- Instagram -->
-          <a href="https://instagram.com/yegnesh.kamble" target="_blank" class="hover:text-pink-500 transition">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 8.2A3.2 3.2 0 1112 8.8a3.2 3.2 0 010 6.4zm4.8-8.9a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0z"/>
-            </svg>
-          </a>
-
-          <!-- Facebook -->
-          <a href="https://facebook.com/yegnesh.kamble" target="_blank" class="hover:text-blue-500 transition">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M22 12a10 10 0 10-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.5l-.4 3h-2.1v7A10 10 0 0022 12z"/>
-            </svg>
-          </a>
-
-          <!-- GitHub -->
-          <a href="https://github.com/yegneshkamble72" target="_blank" class="hover:text-gray-400 transition">
-            <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-          </a>
-          
-          <!-- Whatsapp -->
-          <a href="https://alvo.chat/5W5a?fbclid=PAdGRjcAMvT8hleHRuA2FlbQIxMQABpzbPk9UGIhE2Nq1N8aIQIJya5YHJOX7pgMl1gVnCon6QNRkuJDD3QLVsSeO__aem_wYtSZhanLIZQYHyoQVxaUw" target="_blank"  class="hover:text-green-500 transition">
-            <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
-          </a>
-        </div>
-    </div>
-
-    <div class="border-t border-gray-700 pt-8 text-center">
-      <p class="text-gray-400">© 2026 Yegnesh Kamble. All rights reserved.</p>
-    </div>
-  </div>
-
-  <!-- Floating Back to Top Button -->
-  <button onclick="scrollToTop()" class="fixed bottom-6 right-6 bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-full shadow-lg transition-all">
-    ↑
-  </button>
-</footer>
-
-
-
+        <!-- Floating Back to Top Button -->
+        <button
+          onclick="scrollToTop()"
+          class="fixed bottom-6 right-6 bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-full shadow-lg transition-all"
+        >
+          ↑
+        </button>
+      </footer>
     </div>
 
     <!-- Resume Modal -->
@@ -1419,7 +1641,10 @@
           <p class="text-gray-700 mb-6">
             Your resume preview would appear here
           </p>
-          <button onclick="window.open('resume.pdf', '_blank')" class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+          <button
+            onclick="window.open('resume.pdf', '_blank')"
+            class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
+          >
             Download PDF
           </button>
         </div>
@@ -1448,162 +1673,219 @@
     <!-- Toast Notification -->
     <div id="toast" class="toast"></div>
 
-
-     <script>
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-</script>
-
-
-
-
-
-
-
-
-<script>
-    // Video Player Setup
-    const video = document.getElementById('main-video');
-    const playBtn = document.getElementById('play-btn');
-    const playIcon = document.getElementById('play-icon');
-    const pauseIcon = document.getElementById('pause-icon');
-    const muteBtn = document.getElementById('mute-btn');
-    const volumeIcon = document.getElementById('volume-icon');
-    const muteIcon = document.getElementById('mute-icon');
-    const progressBar = document.querySelector('.group');
-    const progressFill = document.getElementById('progress-fill');
-    const timeDisplay = document.getElementById('time-display');
-    const speedBtn = document.getElementById('speed-btn');
-    const fullscreenBtn = document.getElementById('fullscreen-btn');
-    const videoPoster = document.getElementById('video-poster');
-
-    let isPlaying = false;
-    const speeds = [0.5, 0.75, 1, 1.25, 1.5, 2];
-    let currentSpeedIndex = 2;
-
-    // Format time
-    function formatTime(seconds) {
-      if (!seconds || isNaN(seconds)) return '0:00';
-      const mins = Math.floor(seconds / 60);
-      const secs = Math.floor(seconds % 60);
-      return `${mins}:${secs.toString().padStart(2, '0')}`;
-    }
-
-    // Play/Pause toggle
-    function togglePlay() {
-      if (!video.src || video.src === window.location.href) return;
-      if (isPlaying) {
-        video.play();
-      } else {
-        video.play();
+    <script>
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
-    }
+    </script>
 
-    playBtn.addEventListener('click', togglePlay);
-    video.addEventListener('click', togglePlay);
+    <!--chastbot-->
+    <script>
+      (function () {
+        emailjs.init("MjC-JZctQdQadbLo4"); <!--publickey-->
+      })();
 
-    video.addEventListener('play', () => {
-      isPlaying = true;
-      playIcon.classList.add('hidden');
-      pauseIcon.classList.remove('hidden');
-      videoPoster.classList.add('hidden');
-    });
+      function toggleChat() {
+        let box = document.getElementById("chatBox");
+        box.classList.toggle("hidden");
 
-    video.addEventListener('pause', () => {
-      isPlaying = false;
-      playIcon.classList.remove('hidden');
-      pauseIcon.classList.add('hidden');
-    });
-
-    // Mute toggle
-    muteBtn.addEventListener('click', () => {
-      video.muted = !video.muted;
-      if (video.muted) {
-        volumeIcon.classList.add('hidden');
-        muteIcon.classList.remove('hidden');
-      } else {
-        volumeIcon.classList.remove('hidden');
-        muteIcon.classList.add('hidden');
+        if (!box.classList.contains("hidden")) {
+          addBotMessage(
+            "👋 Welcome to YK Official Support. Please fill the form below.",
+          );
+        }
       }
-    });
 
-    // Progress bar
-    video.addEventListener('timeupdate', () => {
-      if (video.duration) {
-        const progress = (video.currentTime / video.duration) * 100;
-        progressFill.style.width = `${progress}%`;
-        timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+      function addBotMessage(text) {
+        let div = document.createElement("div");
+        div.className = "bg-white p-3 rounded-xl shadow text-sm chat-animate";
+        div.innerText = text;
+        document.getElementById("messages").appendChild(div);
       }
-    });
 
-    progressBar.addEventListener('click', (e) => {
-      const rect = progressBar.getBoundingClientRect();
-      const pos = (e.clientX - rect.left) / rect.width;
-      video.currentTime = pos * video.duration;
-    });
-
-    // Speed control
-    speedBtn.addEventListener('click', () => {
-      currentSpeedIndex = (currentSpeedIndex + 1) % speeds.length;
-      video.playbackRate = speeds[currentSpeedIndex];
-      speedBtn.textContent = `${speeds[currentSpeedIndex]}x`;
-    });
-
-    // Fullscreen
-    fullscreenBtn.addEventListener('click', () => {
-      const videoContainer = document.querySelector('[aspect-video]').closest('div');
-      if (!document.fullscreenElement) {
-        videoContainer.requestFullscreen().catch(err => console.log(err));
-      } else {
-        document.exitFullscreen();
+      function addUserMessage(text) {
+        let div = document.createElement("div");
+        div.className =
+          "bg-green-100 p-3 rounded-xl shadow text-sm ml-auto chat-animate";
+        div.innerText = text;
+        document.getElementById("messages").appendChild(div);
       }
-    });
 
-    // Keyboard shortcuts
-    document.addEventListener('keydown', (e) => {
-      if (e.target.tagName === 'INPUT') return;
-      switch (e.key) {
-        case ' ':
-        case 'k':
-          e.preventDefault();
-          togglePlay();
-          break;
-        case 'm':
-          video.muted = !video.muted;
-          break;
-        case 'ArrowRight':
-          video.currentTime += 10;
-          break;
-        case 'ArrowLeft':
-          video.currentTime -= 10;
-          break;
-        case 'f':
-          fullscreenBtn.click();
-          break;
+      function generateID() {
+        return "YK-" + Math.floor(Math.random() * 1000000);
       }
-    });
 
-    
-  </script>
+      function sendMail() {
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let phone = document.getElementById("phone").value.trim();
+        let message = document.getElementById("message").value.trim();
 
+        if (!name || !email || !phone || !message) {
+          addBotMessage("⚠️ Please fill all fields.");
+          return;
+        }
 
+        addUserMessage("Name: " + name + "\nMessage: " + message);
 
+        let userID = generateID();
 
+        let templateParams = {
+          name: name,
+          email: email,
+          phone: phone,
+          message: message,
+          user_id: userID,
+        };
 
+        emailjs
+          .send("service_zyg352n", "template_s2su8xr", templateParams)
 
+          .then(function (response) {
+            addBotMessage(
+              "✅ Successfully Sent!\nWelcome to YK Official.\nYour Request ID: " +
+                userID,
+            );
 
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("phone").value = "";
+            document.getElementById("message").value = "";
+          })
 
-
-
-
-
-
-
-
+          .catch(function (error) {
+            console.log("FAILED", error);
+            addBotMessage("❌ Mail Failed. Please check EmailJS settings.");
+          });
+      }
+    </script>
 
     <script>
-      
+      // Video Player Setup
+      const video = document.getElementById("main-video");
+      const playBtn = document.getElementById("play-btn");
+      const playIcon = document.getElementById("play-icon");
+      const pauseIcon = document.getElementById("pause-icon");
+      const muteBtn = document.getElementById("mute-btn");
+      const volumeIcon = document.getElementById("volume-icon");
+      const muteIcon = document.getElementById("mute-icon");
+      const progressBar = document.querySelector(".group");
+      const progressFill = document.getElementById("progress-fill");
+      const timeDisplay = document.getElementById("time-display");
+      const speedBtn = document.getElementById("speed-btn");
+      const fullscreenBtn = document.getElementById("fullscreen-btn");
+      const videoPoster = document.getElementById("video-poster");
+
+      let isPlaying = false;
+      const speeds = [0.5, 0.75, 1, 1.25, 1.5, 2];
+      let currentSpeedIndex = 2;
+
+      // Format time
+      function formatTime(seconds) {
+        if (!seconds || isNaN(seconds)) return "0:00";
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, "0")}`;
+      }
+
+      // Play/Pause toggle
+      function togglePlay() {
+        if (!video.src || video.src === window.location.href) return;
+        if (isPlaying) {
+          video.play();
+        } else {
+          video.play();
+        }
+      }
+
+      playBtn.addEventListener("click", togglePlay);
+      video.addEventListener("click", togglePlay);
+
+      video.addEventListener("play", () => {
+        isPlaying = true;
+        playIcon.classList.add("hidden");
+        pauseIcon.classList.remove("hidden");
+        videoPoster.classList.add("hidden");
+      });
+
+      video.addEventListener("pause", () => {
+        isPlaying = false;
+        playIcon.classList.remove("hidden");
+        pauseIcon.classList.add("hidden");
+      });
+
+      // Mute toggle
+      muteBtn.addEventListener("click", () => {
+        video.muted = !video.muted;
+        if (video.muted) {
+          volumeIcon.classList.add("hidden");
+          muteIcon.classList.remove("hidden");
+        } else {
+          volumeIcon.classList.remove("hidden");
+          muteIcon.classList.add("hidden");
+        }
+      });
+
+      // Progress bar
+      video.addEventListener("timeupdate", () => {
+        if (video.duration) {
+          const progress = (video.currentTime / video.duration) * 100;
+          progressFill.style.width = `${progress}%`;
+          timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+        }
+      });
+
+      progressBar.addEventListener("click", (e) => {
+        const rect = progressBar.getBoundingClientRect();
+        const pos = (e.clientX - rect.left) / rect.width;
+        video.currentTime = pos * video.duration;
+      });
+
+      // Speed control
+      speedBtn.addEventListener("click", () => {
+        currentSpeedIndex = (currentSpeedIndex + 1) % speeds.length;
+        video.playbackRate = speeds[currentSpeedIndex];
+        speedBtn.textContent = `${speeds[currentSpeedIndex]}x`;
+      });
+
+      // Fullscreen
+      fullscreenBtn.addEventListener("click", () => {
+        const videoContainer = document
+          .querySelector("[aspect-video]")
+          .closest("div");
+        if (!document.fullscreenElement) {
+          videoContainer.requestFullscreen().catch((err) => console.log(err));
+        } else {
+          document.exitFullscreen();
+        }
+      });
+
+      // Keyboard shortcuts
+      document.addEventListener("keydown", (e) => {
+        if (e.target.tagName === "INPUT") return;
+        switch (e.key) {
+          case " ":
+          case "k":
+            e.preventDefault();
+            togglePlay();
+            break;
+          case "m":
+            video.muted = !video.muted;
+            break;
+          case "ArrowRight":
+            video.currentTime += 10;
+            break;
+          case "ArrowLeft":
+            video.currentTime -= 10;
+            break;
+          case "f":
+            fullscreenBtn.click();
+            break;
+        }
+      });
+    </script>
+
+    <script>
       const translations = {
         en: {
           home: "Home",
@@ -1739,7 +2021,7 @@
             <div class="skill-bar ${skill.color} h-full rounded-full" style="width: 0%" data-width="${skill.level}%"></div>
           </div>
         </div>
-      `
+      `,
           )
           .join("");
 
@@ -1750,71 +2032,81 @@
         }, 100);
       }
 
-    // ===== PROJECT DATA =====
-    const projects = [
-      {
-        title: "FeastHive Restaurant",
-        description:
-          "Modern restaurant website with online ordering and reservation system",
-        image: "https://i.ibb.co/cc8Yd1kc/reshome.png",
-        demo_link: " https://yegneshkamble72.github.io/FeastHiveRestaurant/",
-      },
-      {
-        title: "Netflix Home Clone",
-        description: "Pixel-perfect Netflix homepage replica with dynamic content",
-        image: "https://i.ibb.co/fYWPQ9QY/nethome.png",
-        demo_link: "https://yegneshkamble72.github.io/Netflix/",
-      },
-      {
-        title: "Weather App",
-        description: "Real-time weather application with location-based forecasts",
-        image: "https://i.ibb.co/rRXgLbD4/wether.png",
-        demo_link: "https://yegneshkamble72.github.io/Weather/",
-      },
-      {
-        title: "Portfolio Builder AI",
-        description: "AI-powered website builder for creating professional portfolios",
-        image: "https://i.ibb.co/mW0M5sB/porthome.png",
-        demo_link: "https://go.screenpal.com/watch/cTXQ1YnFgoW",
-      },
-      {
-        title: "Auction Platform",
-        description: "Real-time bidding platform with secure payment integration",
-        image: "",
-        demo_link: "",
-      },
-      {
-        title: "Fake News Detector",
-        description: "ML-powered tool to identify and classify fake news articles",
-        image: "https://i.ibb.co/JFcY8J6g/fakenews.png",
-        demo_link: "https://fake-news-detector.netlify.app",
-      },
-      {
-        title: "Priyanshu bentex jewellery",
-        description: "Priyanshu bentex jewellery has been creating exquisite handcrafted jewellery for over a decade. ",
-        image: "https://i.ibb.co/1GWW563v/pkbetjwhome.png",
-        demo_link: "https://yegneshkamble72.github.io/Priyanshu-bentex-jewellery/",
-      },
-      {
-        title: "Smart Grocery List App",
-        description: "Start building your grocery list with this smart app that categorizes items and suggests recipes.",
-        image: "https://i.ibb.co/Z6tRtzj3/gloseryhome.png",
-        demo_link: "https://yegneshkamble72.github.io/kirana-list-maker/",
-      },
-      {
-        title: "Gopshila Enterprises",
-        description: "GOPSHILA ENTERPRISES is a professional and reliable business company dedicated to delivering quality services with trust and commitment. Led by Owner Priyanshu Kamble, we focus on providing efficient solutions, timely support, and customer satisfaction. Based in Tekadi, Kanhan, Nagpur, we aim to build long-term business relationships through honesty, professionalism, and consistent performance.",
-        image: "https://i.ibb.co/21DcJJRK/Screenshot-2026-02-17-200811.png",
-        demo_link: "https://gopshilaenterprises.github.io/Gopshila-Enterprises/",
-      },
-    ];
+      // ===== PROJECT DATA =====
+      const projects = [
+        {
+          title: "FeastHive Restaurant",
+          description:
+            "Modern restaurant website with online ordering and reservation system",
+          image: "https://i.ibb.co/cc8Yd1kc/reshome.png",
+          demo_link: " https://yegneshkamble72.github.io/FeastHiveRestaurant/",
+        },
+        {
+          title: "Netflix Home Clone",
+          description:
+            "Pixel-perfect Netflix homepage replica with dynamic content",
+          image: "https://i.ibb.co/fYWPQ9QY/nethome.png",
+          demo_link: "https://yegneshkamble72.github.io/Netflix/",
+        },
+        {
+          title: "Weather App",
+          description:
+            "Real-time weather application with location-based forecasts",
+          image: "https://i.ibb.co/rRXgLbD4/wether.png",
+          demo_link: "https://yegneshkamble72.github.io/Weather/",
+        },
+        {
+          title: "Portfolio Builder AI",
+          description:
+            "AI-powered website builder for creating professional portfolios",
+          image: "https://i.ibb.co/mW0M5sB/porthome.png",
+          demo_link: "https://go.screenpal.com/watch/cTXQ1YnFgoW",
+        },
+        {
+          title: "Auction Platform",
+          description:
+            "Real-time bidding platform with secure payment integration",
+          image: "",
+          demo_link: "",
+        },
+        {
+          title: "Fake News Detector",
+          description:
+            "ML-powered tool to identify and classify fake news articles",
+          image: "https://i.ibb.co/JFcY8J6g/fakenews.png",
+          demo_link: "https://fake-news-detector.netlify.app",
+        },
+        {
+          title: "Priyanshu bentex jewellery",
+          description:
+            "Priyanshu bentex jewellery has been creating exquisite handcrafted jewellery for over a decade. ",
+          image: "https://i.ibb.co/1GWW563v/pkbetjwhome.png",
+          demo_link:
+            "https://yegneshkamble72.github.io/Priyanshu-bentex-jewellery/",
+        },
+        {
+          title: "Smart Grocery List App",
+          description:
+            "Start building your grocery list with this smart app that categorizes items and suggests recipes.",
+          image: "https://i.ibb.co/Z6tRtzj3/gloseryhome.png",
+          demo_link: "https://yegneshkamble72.github.io/kirana-list-maker/",
+        },
+        {
+          title: "Gopshila Enterprises",
+          description:
+            "GOPSHILA ENTERPRISES is a professional and reliable business company dedicated to delivering quality services with trust and commitment. Led by Owner Priyanshu Kamble, we focus on providing efficient solutions, timely support, and customer satisfaction. Based in Tekadi, Kanhan, Nagpur, we aim to build long-term business relationships through honesty, professionalism, and consistent performance.",
+          image: "https://i.ibb.co/21DcJJRK/Screenshot-2026-02-17-200811.png",
+          demo_link:
+            "https://gopshilaenterprises.github.io/Gopshila-Enterprises/",
+        },
+      ];
 
-    // ===== RENDER PROJECTS =====
-    function renderProjects() {
-      const container = document.getElementById("projectsContainer");
-      container.innerHTML = projects
-        .map(
-          (p, index) => `
+      // ===== RENDER PROJECTS =====
+      function renderProjects() {
+        const container = document.getElementById("projectsContainer");
+        container.innerHTML = projects
+          .map(
+            (p, index) => `
         <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
           <div class="bg-gradient-to-br from-purple-400 to-indigo-500 h-48 flex items-center justify-center text-6xl">
             <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover">
@@ -1827,29 +2119,28 @@
               🔍 Open Project
             </button>
           </div>
-        </div>`
-        )
-        .join("");
-    }
-    renderProjects();
+        </div>`,
+          )
+          .join("");
+      }
+      renderProjects();
 
-    // ===== MODAL FUNCTIONS =====
-    function openProjectModal(index) {
-      const project = projects[index];
-      document.getElementById("projectModalTitle").textContent = project.title;
-      document.getElementById("projectIframe").src = project.demo_link;
-      document.getElementById("projectModal").classList.add("active");
-    }
+      // ===== MODAL FUNCTIONS =====
+      function openProjectModal(index) {
+        const project = projects[index];
+        document.getElementById("projectModalTitle").textContent =
+          project.title;
+        document.getElementById("projectIframe").src = project.demo_link;
+        document.getElementById("projectModal").classList.add("active");
+      }
 
-    function closeProjectModal() {
-      const modal = document.getElementById("projectModal");
-      const iframe = document.getElementById("projectIframe");
+      function closeProjectModal() {
+        const modal = document.getElementById("projectModal");
+        const iframe = document.getElementById("projectIframe");
 
-      iframe.src = ""; // Stop iframe loading when closed
-      modal.classList.remove("active");
-    }
-
-
+        iframe.src = ""; // Stop iframe loading when closed
+        modal.classList.remove("active");
+      }
 
       function openResumeModal() {
         document.getElementById("resumeModal").classList.add("active");
@@ -1913,53 +2204,37 @@
         });
       });
 
-
-
-
-
-
-
-
-
-
-
       // Form submission
-      
-  // EmailJS Init
-  (function () {
-    emailjs.init("MjC-JZctQdQadbLo4");
-  })();
 
-  document
-    .getElementById("contactForm")
-    .addEventListener("submit", function (e) {
-      e.preventDefault();
+      // EmailJS Init
+      (function () {
+        emailjs.init("MjC-JZctQdQadbLo4");
+      })();
 
-      const userName = document.getElementById("name").value;
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-      emailjs
-        .sendForm(
-          "service_vdvjq06",
-          "template_8zo34mz",
-          this
-        )
-        .then(
-          function () {
-            showPopup(userName);
-            document.getElementById("contactForm").reset();
-          },
-          function (error) {
-            showPopup("Sorry! Something went wrong.");
-            console.log("EmailJS Error:", error);
-          }
-        );
-    });
+          const userName = document.getElementById("name").value;
 
-  // Popup Function
-  function showPopup(name) {
-    const popup = document.createElement("div");
+          emailjs.sendForm("service_vdvjq06", "template_8zo34mz", this).then(
+            function () {
+              showPopup(userName);
+              document.getElementById("contactForm").reset();
+            },
+            function (error) {
+              showPopup("Sorry! Something went wrong.");
+              console.log("EmailJS Error:", error);
+            },
+          );
+        });
 
-    popup.innerHTML = `
+      // Popup Function
+      function showPopup(name) {
+        const popup = document.createElement("div");
+
+        popup.innerHTML = `
       <div style="
         position:fixed;
         top:0;
@@ -2005,12 +2280,8 @@
       </div>
     `;
 
-    document.body.appendChild(popup);
-  }
-
-
-
-
+        document.body.appendChild(popup);
+      }
 
       // Language change
       let currentLang = "en";
@@ -2037,10 +2308,10 @@
 
         // Update hero section buttons
         document.querySelector(
-          "button[onclick=\"scrollToSection('projects')\"]"
+          "button[onclick=\"scrollToSection('projects')\"]",
         ).textContent = t.viewProjects;
         document.querySelector(
-          'button[onclick="openResumeModal()"]'
+          'button[onclick="openResumeModal()"]',
         ).textContent = t.downloadResume;
 
         // Update section titles
@@ -2056,7 +2327,7 @@
         document.querySelector("#contact h3").textContent = t.contactInfo;
         document.querySelectorAll("#contact h3")[1].textContent = t.followMe;
         document.querySelector(
-          '#contactForm button[type="submit"]'
+          '#contactForm button[type="submit"]',
         ).textContent = t.sendMessage;
 
         // Update footer
@@ -2069,7 +2340,7 @@
         showToast(
           `Language changed to ${
             lang === "en" ? "English" : lang === "hi" ? "हिंदी" : "मराठी"
-          }`
+          }`,
         );
       }
 
