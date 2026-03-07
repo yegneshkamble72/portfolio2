@@ -628,61 +628,58 @@
         </div>
       </div>
       <!-- Secondary Navigation -->
-      <div class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white fixed w-full top-16 z-40 shadow-md">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-12 text-sm">
+      <div
+        class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white fixed w-full top-16 z-40 shadow-md"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center h-12 text-sm">
+            <div class="flex items-center space-x-4">
+              <select
+                id="languageSelect"
+                class="bg-white bg-opacity-20 text-white px-3 py-1 rounded-lg border border-white border-opacity-30 cursor-pointer"
+              >
+                <option value="en" class="text-black">English</option>
+                <option value="hi" class="text-black">हिंदी</option>
+                <option value="mr" class="text-black">मराठी</option>
+              </select>
 
-      <div class="flex items-center space-x-4">
+              <span id="currentDateTime" class="hidden sm:inline"></span>
+            </div>
 
-        <select
-          id="languageSelect"
-          class="bg-white bg-opacity-20 text-white px-3 py-1 rounded-lg border border-white border-opacity-30 cursor-pointer"
-        >
-          <option value="en" class="text-black">English</option>
-          <option value="hi" class="text-black">हिंदी</option>
-          <option value="mr" class="text-black">मराठी</option>
-        </select>
+            <!-- RIGHT SIDE BUTTONS -->
+            <div class="flex items-center gap-3">
+              <a
+                href="custindex.html"
+                class="bg-white text-purple-700 px-4 py-1 rounded-lg font-semibold hover:bg-gray-200 transition"
+              >
+                🚀 Registration
+              </a>
 
-        <span id="currentDateTime" class="hidden sm:inline"></span>
+              <a
+                href="adminindex.html"
+                class="bg-pink-500 px-4 py-1 rounded-lg font-semibold hover:bg-pink-600 transition"
+              >
+                Admin
+              </a>
 
+              <a
+                href="https://meet.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center space-x-2 bg-white bg-opacity-20 px-4 py-1 rounded-lg hover:bg-opacity-30 transition-all"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-.449s-4.252 8.449-11.985 8.449c-7.18 0-12.015-8.449-12.015-8.449s4.446-7.551 12.015-7.551c7.694 0 11.985 7.551 11.985 7.551zm-7 .449c0-2.757-2.243-5-5-5s-5 2.243-5 5 2.243 5 5 5 5-2.243 5-5z"
+                  />
+                </svg>
+
+                <span>Live Connect</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- RIGHT SIDE BUTTONS -->
-      <div class="flex items-center gap-3">
-
-        <a
-          href="client-form.html"
-          class="bg-white text-purple-700 px-4 py-1 rounded-lg font-semibold hover:bg-gray-200 transition"
-        >
-          🚀 Start Project
-        </a>
-
-        <a
-          href="client-form.html"
-          class="bg-pink-500 px-4 py-1 rounded-lg font-semibold hover:bg-pink-600 transition"
-        >
-          Get Quote
-        </a>
-
-        <a
-          href="https://meet.google.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center space-x-2 bg-white bg-opacity-20 px-4 py-1 rounded-lg hover:bg-opacity-30 transition-all"
-        >
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-.449s-4.252 8.449-11.985 8.449c-7.18 0-12.015-8.449-12.015-8.449s4.446-7.551 12.015-7.551c7.694 0 11.985 7.551 11.985 7.551zm-7 .449c0-2.757-2.243-5-5-5s-5 2.243-5 5 2.243 5 5 5 5-2.243 5-5z"/>
-          </svg>
-
-          <span>Live Connect</span>
-
-        </a>
-
-      </div>
-
-    </div>
-  </div>
-</div>
 
       <!-- Side Cart Buttons -->
       <div class="side-cart">
@@ -2479,9 +2476,6 @@
         }
       })();
     </script>
-
-
-
 
     <!--SOURCE CODE HIDE SCRIPT -->
 
