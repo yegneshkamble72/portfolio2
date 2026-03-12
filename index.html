@@ -10,7 +10,7 @@
       href="https://i.ibb.co/hJCHgThF/logo-yk-crop.png"
     />
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/_sdk/element_sdk.js"></script>
     <style>
@@ -152,9 +152,9 @@
         margin: 20px 0;
       }
 
-      .hidden {
+      /* .hidden {
         display: none;
-      }
+      } */
 
       .modal {
         position: fixed;
@@ -273,6 +273,14 @@
           grid-template-columns: repeat(3, 1fr);
           gap: 12px;
         }
+
+        #languageSelect{
+          display: hidden;
+        }
+
+        #currentDateTime{
+          display: hidden;
+        }
       }
 
       .mobile-menu-overlay {
@@ -371,40 +379,64 @@
       }
     </style>
 
+ //loderbar 
+
+    <style> 
+
+#loader-bar{
+width:0%;
+animation:loading 2.5s linear forwards;
+}
+
+@keyframes loading{
+0%{width:0%}
+100%{width:100%}
+}
+
+</style>
+
     <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   </head>
 
   <body class="bg-gray-50">
-    <!-- Captcha Screen -->
-    <div id="captchaContainer" class="captcha-container">
-      <div class="captcha-box animate-fadeIn">
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">
-          Security Verification
-        </h2>
-        <p class="text-gray-600 mb-6">
-          Please enter the code below to continue
-        </p>
-        <div id="captchaCode" class="captcha-code"></div>
-        <input
-          type="text"
-          id="captchaInput"
-          class="captcha-input"
-          placeholder="Enter code here"
-          maxlength="6"
-        />
-        <button
-          onclick="verifyCaptcha()"
-          class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-indigo-700 transition-all"
-        >
-          Verify &amp; Continue
-        </button>
-        <p id="captchaError" class="text-red-500 mt-3 hidden">
-          Incorrect code. Please try again.
-        </p>
-      </div>
+
+
+    
+<!-- YK OFFICIAL Premium Loader -->
+<div id="yk-loader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0f172a]">
+
+  <div class="text-center">
+
+    <!-- Logo -->
+    <div class="relative flex justify-center items-center mb-8">
+      <div class="absolute w-28 h-28 rounded-full border border-purple-500 animate-ping opacity-40"></div>
+
+      <img 
+      src="https://i.ibb.co/hJCHgThF/logo-yk-crop.png"
+      class="w-20 relative z-10 animate-pulse rounded-full"
+      alt="YK Logo">
     </div>
+
+    <!-- Website Name -->
+    <h1 class="text-white text-xl md:text-2xl font-semibold tracking-widest">
+      YK OFFICIAL
+    </h1>
+
+    <p class="text-gray-400 text-sm mt-2">
+      Loading Experience...
+    </p>
+
+    <!-- Progress Bar -->
+    <div class="w-56 md:w-72 h-1 bg-gray-700 rounded-full mt-6 overflow-hidden mx-auto">
+      <div id="loader-bar" class="h-full bg-gradient-to-r from-neutral-200 to-violet-200 w-0"></div>
+    </div>
+
+  </div>
+
+</div>
+
     <!-- Main Website -->
-    <div id="mainWebsite" class="hidden">
+    <div id="mainWebsite" class="">
       <!-- Top Navigation -->
       <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -662,17 +694,22 @@
       >
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-12 text-sm">
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center gap-3 sm:gap-4">
+              <!-- Language Selector -->
               <select
                 id="languageSelect"
-                class="bg-white bg-opacity-20 text-white px-3 py-1 rounded-lg border border-white border-opacity-30 cursor-pointer"
+                class="bg-white/20 backdrop-blur-md text-white text-sm px-3 py-1.5 rounded-lg border border-white/30 focus:outline-none focus:ring-2 focus:ring-purple-400 cursor-pointer"
               >
                 <option value="en" class="text-black">English</option>
                 <option value="hi" class="text-black">हिंदी</option>
                 <option value="mr" class="text-black">मराठी</option>
               </select>
 
-              <span id="currentDateTime" class="hidden sm:inline"></span>
+              <!-- Date Time -->
+              <span
+                id="currentDateTime"
+                class="hidden sm:flex items-center text-sm text-white bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-md border border-white/20"
+              ></span>
             </div>
 
             <!-- RIGHT SIDE BUTTONS -->
@@ -1231,16 +1268,138 @@
       </section>
 
       <!-- Skills Section -->
-
-      <section id="skills" class="min-h-screen py-20 px-4 bg-gray-50">
+      <section
+        id="skills"
+        class="min-h-screen py-20 px-4 bg-gradient-to-b from-gray-50 to-gray-100"
+      >
         <div class="max-w-6xl mx-auto">
+          <!-- Title -->
           <h2
             class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16"
           >
-            <span class="border-b-4 border-purple-600 pb-2">My Skills</span>
+            <span class="border-b-4 border-indigo-500 pb-2">My Skills</span>
           </h2>
-          <div class="grid md:grid-cols-2 gap-8" id="skillsContainer">
-            <!-- Skills will be dynamically added -->
+
+          <!-- Skills Grid -->
+          <div
+            class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            id="skillsContainer"
+          >
+            <!-- Skill Card -->
+            <div
+              class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 border border-gray-100"
+            >
+              <div class="flex justify-between items-center mb-3">
+                <h3 class="text-lg font-semibold text-gray-800">HTML / CSS</h3>
+                <span class="text-indigo-600 font-bold">85%</span>
+              </div>
+
+              <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div
+                  class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full w-[85%] transition-all duration-1000"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill Card -->
+            <div
+              class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 border border-gray-100"
+            >
+              <div class="flex justify-between items-center mb-3">
+                <h3 class="text-lg font-semibold text-gray-800">JavaScript</h3>
+                <span class="text-indigo-600 font-bold">90%</span>
+              </div>
+
+              <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div
+                  class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full w-[90%]"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill Card -->
+            <div
+              class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 border border-gray-100"
+            >
+              <div class="flex justify-between items-center mb-3">
+                <h3 class="text-lg font-semibold text-gray-800">
+                  Tailwind CSS
+                </h3>
+                <span class="text-indigo-600 font-bold">75%</span>
+              </div>
+
+              <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div
+                  class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full w-[75%]"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill Card -->
+            <div
+              class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 border border-gray-100"
+            >
+              <div class="flex justify-between items-center mb-3">
+                <h3 class="text-lg font-semibold text-gray-800">AWS</h3>
+                <span class="text-indigo-600 font-bold">80%</span>
+              </div>
+
+              <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div
+                  class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full w-[80%]"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill Card -->
+            <div
+              class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 border border-gray-100"
+            >
+              <div class="flex justify-between items-center mb-3">
+                <h3 class="text-lg font-semibold text-gray-800">Python</h3>
+                <span class="text-indigo-600 font-bold">75%</span>
+              </div>
+
+              <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div
+                  class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full w-[75%]"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill Card -->
+            <div
+              class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 border border-gray-100"
+            >
+              <div class="flex justify-between items-center mb-3">
+                <h3 class="text-lg font-semibold text-gray-800">C / C++</h3>
+                <span class="text-indigo-600 font-bold">70%</span>
+              </div>
+
+              <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div
+                  class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full w-[70%]"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill Card -->
+            <div
+              class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 border border-gray-100"
+            >
+              <div class="flex justify-between items-center mb-3">
+                <h3 class="text-lg font-semibold text-gray-800">
+                  VN Video Editor
+                </h3>
+                <span class="text-indigo-600 font-bold">85%</span>
+              </div>
+
+              <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div
+                  class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full w-[85%]"
+                ></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1454,7 +1613,7 @@
             <div class="bg-white p-8 rounded-2xl shadow-xl">
               <form id="contactForm">
                 <div class="mb-6">
-                  <input type="hidden" name="request_id" id="request_id">
+                  <input type="hidden" name="request_id" id="request_id" />
                   <label
                     for="name"
                     class="block text-gray-700 font-semibold mb-2"
@@ -1944,6 +2103,27 @@
       });
     </script>
 
+     <script> // Preloader Logic
+
+window.addEventListener("load", () => {
+
+setTimeout(()=>{
+
+const loader=document.getElementById("yk-loader")
+
+loader.style.opacity="0"
+loader.style.transition="opacity 0.6s ease"
+
+setTimeout(()=>{
+loader.style.display="none"
+},600)
+
+},2500)
+
+})
+
+</script>
+
     <script>
       const translations = {
         en: {
@@ -2008,52 +2188,32 @@
         },
       };
 
-      // Captcha functionality
-      let captchaCode = "";
-
-      function generateCaptcha() {
-        const chars = "0123456789";
-        captchaCode = "";
-        for (let i = 0; i < 6; i++) {
-          captchaCode += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        document.getElementById("captchaCode").textContent = captchaCode;
-      }
-
-      function verifyCaptcha() {
-        const input = document
-          .getElementById("captchaInput")
-          .value.toUpperCase();
-        if (input === captchaCode) {
-          document.getElementById("captchaContainer").style.opacity = "0";
-          setTimeout(() => {
-            document.getElementById("captchaContainer").classList.add("hidden");
-            document.getElementById("mainWebsite").classList.remove("hidden");
-          }, 500);
-        } else {
-          document.getElementById("captchaError").classList.remove("hidden");
-          generateCaptcha();
-          document.getElementById("captchaInput").value = "";
-          setTimeout(() => {
-            document.getElementById("captchaError").classList.add("hidden");
-          }, 3000);
-        }
-      }
-
       // Date and time update
       function updateDateTime() {
         const now = new Date();
+
         const options = {
           weekday: "short",
           year: "numeric",
           month: "short",
           day: "numeric",
+        };
+
+        const date = now.toLocaleDateString("en-US", options);
+        const time = now.toLocaleTimeString("en-US", {
           hour: "2-digit",
           minute: "2-digit",
-        };
+        });
+
         document.getElementById("currentDateTime").textContent =
-          now.toLocaleDateString("en-US", options);
+          `${date} | ${time}`;
       }
+
+      // Update every second
+      setInterval(updateDateTime, 1000);
+
+      // Run once immediately
+      updateDateTime();
 
       // Skills data
       const skills = [
@@ -2071,7 +2231,7 @@
         container.innerHTML = skills
           .map(
             (skill) => `
-        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
+        <div class="bg-red-500 z-10 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
           <div class="flex justify-between items-center mb-3">
             <h3 class="text-xl font-bold text-gray-800">${skill.name}</h3>
             <span class="text-purple-600 font-bold">${skill.level}%</span>
@@ -2263,68 +2423,68 @@
         });
       });
 
-      
-
       // Form submission
 
-    
       // EmailJS Init
-(function () {
-  emailjs.init("MjC-JZctQdQadbLo4");
-})();
+      (function () {
+        emailjs.init("MjC-JZctQdQadbLo4");
+      })();
 
-// Unique 6 Digit ID Generator
-function generateID() {
-  const number = Math.floor(100000 + Math.random() * 900000);
-  return "YK" + number;
-}
+      // Unique 6 Digit ID Generator
+      function generateID() {
+        const number = Math.floor(100000 + Math.random() * 900000);
+        return "YK" + number;
+      }
 
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-  const userName = document.getElementById("name").value.trim();
-  const userEmail = document.getElementById("email").value.trim();
-  const userMessage = document.getElementById("message").value.trim();
+          const userName = document.getElementById("name").value.trim();
+          const userEmail = document.getElementById("email").value.trim();
+          const userMessage = document.getElementById("message").value.trim();
 
-  const uniqueID = generateID();
+          const uniqueID = generateID();
 
-  // Hidden input me ID set
-  document.getElementById("request_id").value = uniqueID;
+          // Hidden input me ID set
+          document.getElementById("request_id").value = uniqueID;
 
-  // EmailJS Send
-  emailjs.sendForm("service_vdvjq06", "template_8zo34mz", this)
-    .then(function () {
+          // EmailJS Send
+          emailjs.sendForm("service_vdvjq06", "template_8zo34mz", this).then(
+            function () {
+              // Google Sheet Send
+              fetch(
+                "https://script.google.com/macros/s/AKfycby8zdl1bJX3nnCG8WGu6bD95ojgPr2mj2rLnx3fSMB8ruGVgNAH7h82rbvEC--wtOWJ5Q/exec",
+                {
+                  method: "POST",
+                  body: JSON.stringify({
+                    id: uniqueID,
+                    name: userName,
+                    email: userEmail,
+                    message: userMessage,
+                  }),
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                },
+              );
 
-      // Google Sheet Send
-      fetch("https://script.google.com/macros/s/AKfycby8zdl1bJX3nnCG8WGu6bD95ojgPr2mj2rLnx3fSMB8ruGVgNAH7h82rbvEC--wtOWJ5Q/exec", {
-        method: "POST",
-        body: JSON.stringify({
-          id: uniqueID,
-          name: userName,
-          email: userEmail,
-          message: userMessage
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
+              showPopup(userName, uniqueID);
+              document.getElementById("contactForm").reset();
+            },
+            function (error) {
+              showPopup("Error", "Something went wrong!");
+              console.log("EmailJS Error:", error);
+            },
+          );
+        });
 
-      showPopup(userName, uniqueID);
-      document.getElementById("contactForm").reset();
+      // Popup Function
+      function showPopup(name, id) {
+        const popup = document.createElement("div");
 
-    }, function (error) {
-      showPopup("Error", "Something went wrong!");
-      console.log("EmailJS Error:", error);
-    });
-
-});
-
-// Popup Function
-function showPopup(name, id) {
-
-  const popup = document.createElement("div");
-
-  popup.innerHTML = `
+        popup.innerHTML = `
   <div style="
   position:fixed;
   top:0;
@@ -2373,9 +2533,9 @@ function showPopup(name, id) {
   </div>
   `;
 
-  popup.classList.add("popup-container");
-  document.body.appendChild(popup);
-}
+        popup.classList.add("popup-container");
+        document.body.appendChild(popup);
+      }
       // Language change
       let currentLang = "en";
 
