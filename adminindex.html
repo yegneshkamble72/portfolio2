@@ -1,352 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>YK OFFICIAL-Admin Dashboard</title>
-
-<link rel="icon" href="https://i.ibb.co/hJCHgThF/logo-yk-crop.png">
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<style>
-
-.popup{animation:pop .3s ease;}
-
-@keyframes pop{
-0%{transform:scale(.7);opacity:0}
-100%{transform:scale(1);opacity:1}
-}
-
-.loader{
-border:4px solid #eee;
-border-top:4px solid #6366f1;
-border-radius:50%;
-width:40px;
-height:40px;
-animation:spin 1s linear infinite;
-}
-
-@keyframes spin{100%{transform:rotate(360deg)}}
-
-</style>
-
-</head>
-
-<body class="bg-slate-900 text-white min-h-screen">
-
-<!-- LOGIN -->
-
-<div id="loginPage" class="flex items-center justify-center h-screen">
-
-<div class="bg-white text-black p-8 rounded-xl w-80 popup">
-
-<h2 class="text-2xl font-bold text-center mb-6">
-Admin Login
-</h2>
-
-<input id="user" placeholder="Username"
-class="border border-black w-full p-3 rounded mb-3">
-
-<input id="pass" type="password"
-placeholder="Password"
-class="border border-black w-full p-3 rounded mb-4">
-
-<button onclick="login()"
-class="bg-indigo-600 text-white w-full py-3 rounded">
-
-Login
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- DASHBOARD -->
-
-<div id="dashboard" class="hidden flex flex-col min-h-screen">
-
-<!-- NAVBAR -->
-
-<div class="bg-black/40 p-4 flex justify-between items-center">
-
-<div class="flex items-center gap-3">
-
-<img src="https://i.ibb.co/hJCHgThF/logo-yk-crop.png" class="w-10 rounded-full">
-
-<h1 class="font-bold text-xl">
-YK OFFICIAL ADMIN
-</h1>
-
-</div>
-
-<div class="flex gap-2">
-
-<button onclick="loadData()" class="bg-green-500 px-3 py-1 rounded">
-Refresh
-</button>
-
-<button onclick="showHelp()" class="bg-indigo-500 px-3 py-1 rounded">
-Help
-</button>
-
-<button onclick="showContact()" class="bg-white text-black px-3 py-1 rounded">
-Contact
-</button>
-
-<button onclick="logout()" class="bg-red-500 px-3 py-1 rounded">
-Logout
-</button>
-
-</div>
-
-</div>
-
-
-<!-- TABLE -->
-
-<div class="p-6 overflow-x-auto">
-
-<table class="min-w-full bg-white text-black rounded">
-
-<thead class="bg-indigo-600 text-white">
-
-<tr>
-
-<th class="p-3">ID</th>
-<th class="p-3">Name</th>
-<th class="p-3">Email</th>
-<th class="p-3">Phone</th>
-<th class="p-3">Service</th>
-<th class="p-3">Message</th>
-<th class="p-3">Date</th>
-<th class="p-3">Action</th>
-
-</tr>
-
-</thead>
-
-<tbody id="tableData"></tbody>
-
-</table>
-
-</div>
-
-
-<!-- FOOTER -->
-
-<footer class="bg-black/50 text-center py-4 text-sm">
-
-© 2026 YK OFFICIAL TEAM
-
-</footer>
-
-</div>
-
-
-<!-- EDIT MODAL -->
-
-<div id="editModal"
-class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
-
-<div class="popup bg-white text-black p-6 rounded-xl w-96">
-
-<h2 class="font-bold text-lg mb-4">
-Edit Client
-</h2>
-
-<input id="editName" class="border w-full p-2 mb-2">
-<input id="editEmail" class="border w-full p-2 mb-2">
-<input id="editPhone" class="border w-full p-2 mb-2">
-<input id="editService" class="border w-full p-2 mb-2">
-<textarea id="editMessage" class="border w-full p-2 mb-3"></textarea>
-
-<div class="flex justify-end gap-2">
-
-<button onclick="closeEdit()" class="bg-gray-400 px-4 py-1 rounded">
-Cancel
-</button>
-
-<button onclick="saveEdit()" class="bg-indigo-600 text-white px-4 py-1 rounded">
-Save
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- DELETE POPUP -->
-
-<div id="deletePopup"
-class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
-
-<div class="popup bg-white text-black p-6 rounded-xl text-center">
-
-<h2 class="text-lg font-bold mb-3">
-Delete Client?
-</h2>
-
-<p class="mb-4">
-This action cannot be undone
-</p>
-
-<div class="flex justify-center gap-3">
-
-<button onclick="closeDelete()" class="bg-gray-400 px-4 py-1 rounded">
-Cancel
-</button>
-
-<button onclick="confirmDelete()" class="bg-red-500 text-white px-4 py-1 rounded">
-Delete
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- HELP POPUP -->
-
-<div id="helpPopup"
-class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
-
-<div class="popup bg-white text-black p-6 rounded-xl text-center">
-
-<h2 class="font-bold text-lg mb-3">
-Dashboard Help
-</h2>
-
-<p class="mb-4">
-
-Refresh → Load latest client requests  <br>
-Edit → Update client details  <br>
-Delete → Remove client from sheet  
-
-</p>
-
-<button onclick="closeHelp()" class="bg-indigo-600 text-white px-4 py-1 rounded">
-Close
-</button>
-
-</div>
-
-</div>
-
-
-<!-- CONTACT POPUP -->
-
-<div id="contactPopup"
-class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
-
-<div class="popup bg-white text-black p-6 rounded-xl text-center">
-
-<h2 class="font-bold text-lg mb-3">
-YK OFFICIAL TEAM
-</h2>
-
-<p>📧 yegnesh7219@gmail.com</p>
-<p>🌐 YK OFFICIAL-Support</p>
-
-<button onclick="closeContact()" class="bg-indigo-600 text-white px-4 py-1 mt-3 rounded">
-Close
-</button>
-
-</div>
-
-</div>
-
-
-<!-- LOADER -->
-
-<div id="loader"
-class="hidden fixed inset-0 bg-black/50 flex items-center justify-center">
-
-<div class="loader"></div>
-
-</div>
-
-
-<script>
-
-const API="https://script.google.com/macros/s/AKfycbwnBjAJdDDIwefyafJ1_1jAh84Vsgr9oslrvaPTYC5BN5Bpra-PkfgcDQ4dlWGw7q6T/exec"
-
-let editID=""
-let deleteID=""
-
-function showLoader(){
-document.getElementById("loader").style.display="flex"
-}
-
-function hideLoader(){
-document.getElementById("loader").style.display="none"
-}
-
-function login(){
-
-let u=document.getElementById("user").value
-let p=document.getElementById("pass").value
-
-if(u==="admin" && p==="1234"){
-
-document.getElementById("loginPage").style.display="none"
-document.getElementById("dashboard").style.display="flex"
-
-loadData()
-
-}else{
-alert("Invalid Login")
-}
-
-}
-
-function logout(){
-location.reload()
-}
-
-
-/* HELP */
-
-function showHelp(){
-document.getElementById("helpPopup").style.display="flex"
-}
-
-function closeHelp(){
-document.getElementById("helpPopup").style.display="none"
-}
-
-
-/* CONTACT */
-
-function showContact(){
-document.getElementById("contactPopup").style.display="flex"
-}
-
-function closeContact(){
-document.getElementById("contactPopup").style.display="none"
-}
-
-
-async function loadData(){
-
-showLoader()
-
-let res=await fetch(API)
-let data=await res.json()
-
-let html=""
-
-data.reverse().forEach(c=>{
-
-html+=`
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>YK OFFICIAL | Admin Dashboard</title>
+
+    <link rel="icon" href="https://i.ibb.co/hJCHgThF/logo-yk-crop.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      body {
+        background: linear-gradient(135deg, #020617, #0f172a, #020617);
+      }
+
+      .popup {
+        animation: pop 0.3s ease;
+      }
+
+      @keyframes pop {
+        0% {
+          transform: scale(0.7);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .ykLoader {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        border: 6px solid rgba(255, 255, 255, 0.1);
+        border-top: 6px solid #6366f1;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+
+  <body class="text-white min-h-screen">
+    <!-- LOGIN -->
+
+    <div id="loginPage" class="flex items-center justify-center h-screen">
+      <div class="glass popup p-8 rounded-xl w-80">
+        <h2 class="text-2xl font-bold text-center mb-6">YK OFFICIAL ADMIN</h2>
+
+        <input
+          id="user"
+          placeholder="Username"
+          class="w-full p-3 rounded mb-3 text-black"
+        />
+
+        <input
+          id="pass"
+          type="password"
+          placeholder="Password"
+          class="w-full p-3 rounded mb-4 text-black"
+        />
+
+        <button
+          onclick="login()"
+          class="bg-indigo-600 hover:bg-indigo-700 w-full py-3 rounded"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+
+    <!-- DASHBOARD -->
+
+    <div id="dashboard" class="hidden flex flex-col min-h-screen">
+      <!-- NAVBAR -->
+
+      <!-- NAVBAR -->
+
+      <div
+        class="glass p-4 flex flex-col md:flex-row md:justify-between md:items-center gap-3"
+      >
+        <!-- ROW 1 -->
+        <div class="flex items-center justify-between gap-3 w-full md:w-auto">
+          <div class="flex items-center gap-3">
+            <img
+              src="https://i.ibb.co/hJCHgThF/logo-yk-crop.png"
+              class="w-10 rounded-full"
+            />
+
+            <h1 class="font-bold text-xl">YK OFFICIAL Dashboard</h1>
+          </div>
+
+          <input
+            id="search"
+            placeholder="Search client..."
+            onkeyup="searchClient()"
+            class="p-2 rounded text-black w-40 md:w-auto"
+          />
+        </div>
+
+        <!-- ROW 2 (Buttons) -->
+        <div class="flex gap-2 flex-wrap justify-start md:justify-end">
+          <button
+            onclick="loadData()"
+            class="bg-green-500 px-3 py-1 rounded text-sm"
+          >
+            Refresh
+          </button>
+
+          <button
+            onclick="openAdd()"
+            class="bg-indigo-500 px-3 py-1 rounded text-sm"
+          >
+            Add Client
+          </button>
+
+          <button
+            onclick="showHelp()"
+            class="bg-indigo-500 px-3 py-1 rounded text-sm"
+          >
+            Help
+          </button>
+
+          <button
+            onclick="showContact()"
+            class="bg-white text-black px-3 py-1 rounded text-sm"
+          >
+            Contact
+          </button>
+
+          <button
+            onclick="logout()"
+            class="bg-red-500 px-3 py-1 rounded text-sm"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+
+      <!-- HELP POPUP -->
+
+      <div
+        id="helpPopup"
+        class="hidden fixed inset-0 bg-black/100 flex items-center z-10 justify-center"
+      >
+        <div class="popup glass p-6 rounded-xl text-center w-96">
+          <h2 class="text-xl font-bold mb-3">Dashboard Help</h2>
+
+          <p class="text-gray-300 text-sm leading-relaxed">
+            🔄 Refresh → Load latest client data <br /><br />
+
+            ➕ Add Client → Manually add new customer <br /><br />
+
+            ✏ Edit → Update client information <br /><br />
+
+            🗑 Delete → Remove client permanently
+          </p>
+
+          <button
+            onclick="closeHelp()"
+            class="mt-4 bg-indigo-600 px-4 py-1 rounded"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+
+      <!-- CONTACT POPUP -->
+
+      <div
+        id="contactPopup"
+        class="hidden fixed inset-0 bg-black/100 flex items-center z-10 justify-center"
+      >
+        <div class="popup glass p-6 rounded-xl text-center w-96">
+          <h2 class="text-xl font-bold mb-3">YK OFFICIAL Support</h2>
+
+          <p class="text-gray-300">
+            📧 Email <br />
+
+            <b>yegnesh7219@gmail.com</b>
+          </p>
+
+          <p class="mt-3 text-gray-300">
+            📱 Phone <br />
+
+            <b>7219274312</b>
+          </p>
+
+          <p class="mt-3 text-gray-400 text-sm">Founder : Yegnesh Kamble</p>
+
+          <button
+            onclick="closeContact()"
+            class="mt-4 bg-indigo-600 px-4 py-1 rounded"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+
+      <!-- STATS -->
+
+      <div class="grid md:grid-cols-3 gap-4 p-6">
+        <div class="glass p-5 rounded-xl">
+          <h3 class="text-gray-400">Total Clients</h3>
+
+          <p id="totalClients" class="text-3xl font-bold">0</p>
+        </div>
+
+        <div class="glass p-5 rounded-xl">
+          <h3 class="text-gray-400">System</h3>
+
+          <p class="text-3xl font-bold">Online</p>
+        </div>
+
+        <div class="glass p-5 rounded-xl">
+          <h3 class="text-gray-400">Admin</h3>
+
+          <p class="text-3xl font-bold">YK OFFICIAL</p>
+        </div>
+      </div>
+
+      <!-- TABLE -->
+
+      <div class="p-6 overflow-x-auto">
+        <table
+          class="min-w-full bg-white text-black rounded-xl overflow-hidden"
+        >
+          <thead class="bg-indigo-600 text-white">
+            <tr>
+              <th class="p-3">ID</th>
+              <th class="p-3">Name</th>
+              <th class="p-3">Email</th>
+              <th class="p-3">Phone</th>
+              <th class="p-3">Service</th>
+              <th class="p-3">Message</th>
+              <th class="p-3">Date</th>
+              <th class="p-3">Action</th>
+            </tr>
+          </thead>
+
+          <tbody id="tableData"></tbody>
+        </table>
+      </div>
+
+      <footer class="text-center text-gray-400 py-4">© 2026 YK OFFICIAL</footer>
+    </div>
+
+    <!-- ADD CLIENT -->
+
+    <div
+      id="addModal"
+      class="hidden fixed inset-0 bg-black/70 flex items-center justify-center"
+    >
+      <div class="popup glass p-6 rounded-xl w-96">
+        <h2 class="font-bold mb-4">Add Client</h2>
+
+        <input
+          id="addName"
+          placeholder="Name"
+          class="w-full p-2 rounded mb-2 text-black"
+        />
+        <input
+          id="addEmail"
+          placeholder="Email"
+          class="w-full p-2 rounded mb-2 text-black"
+        />
+        <input
+          id="addPhone"
+          placeholder="Phone"
+          class="w-full p-2 rounded mb-2 text-black"
+        />
+        <input
+          id="addService"
+          placeholder="Service"
+          class="w-full p-2 rounded mb-2 text-black"
+        />
+        <textarea
+          id="addMessage"
+          placeholder="Message"
+          class="w-full p-2 rounded mb-3 text-black"
+        ></textarea>
+
+        <div class="flex justify-end gap-2">
+          <button onclick="closeAdd()" class="bg-gray-400 px-4 py-1 rounded">
+            Cancel
+          </button>
+
+          <button onclick="addClient()" class="bg-indigo-600 px-4 py-1 rounded">
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDIT -->
+
+    <div
+      id="editModal"
+      class="hidden fixed inset-0 bg-black/70 flex items-center justify-center"
+    >
+      <div class="popup glass p-6 rounded-xl w-96">
+        <h2 class="font-bold mb-4">Edit Client</h2>
+
+        <input id="editName" class="w-full p-2 rounded mb-2 text-black" />
+        <input id="editEmail" class="w-full p-2 rounded mb-2 text-black" />
+        <input id="editPhone" class="w-full p-2 rounded mb-2 text-black" />
+        <input id="editService" class="w-full p-2 rounded mb-2 text-black" />
+        <textarea
+          id="editMessage"
+          class="w-full p-2 rounded mb-3 text-black"
+        ></textarea>
+
+        <div class="flex justify-end gap-2">
+          <button onclick="closeEdit()" class="bg-gray-400 px-4 py-1 rounded">
+            Cancel
+          </button>
+
+          <button onclick="saveEdit()" class="bg-indigo-600 px-4 py-1 rounded">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOADER -->
+
+    <div
+      id="loader"
+      class="hidden fixed inset-0 bg-black/70 flex items-center justify-center flex-col gap-4"
+    >
+      <div class="ykLoader"></div>
+
+      <p class="text-xl font-bold">YK OFFICIAL</p>
+    </div>
+
+    <script>
+      function showHelp() {
+        document.getElementById("helpPopup").style.display = "flex";
+      }
+
+      function closeHelp() {
+        document.getElementById("helpPopup").style.display = "none";
+      }
+
+      function showContact() {
+        document.getElementById("contactPopup").style.display = "flex";
+      }
+
+      function closeContact() {
+        document.getElementById("contactPopup").style.display = "none";
+      }
+
+      const API =
+        "https://script.google.com/macros/s/AKfycbwnBjAJdDDIwefyafJ1_1jAh84Vsgr9oslrvaPTYC5BN5Bpra-PkfgcDQ4dlWGw7q6T/exec";
+
+      let editID = "";
+
+      function showLoader() {
+        document.getElementById("loader").style.display = "flex";
+      }
+
+      function hideLoader() {
+        document.getElementById("loader").style.display = "none";
+      }
+
+      function login() {
+        let u = user.value;
+        let p = pass.value;
+
+        if (u === "admin" && p === "1234") {
+          loginPage.style.display = "none";
+          dashboard.style.display = "flex";
+
+          loadData();
+        } else {
+          alert("Invalid Login");
+        }
+      }
+
+      function logout() {
+        location.reload();
+      }
+
+      async function loadData() {
+        showLoader();
+
+        let res = await fetch(API);
+        let data = await res.json();
+
+        document.getElementById("totalClients").innerText = data.length;
+
+        let html = "";
+
+        data.reverse().forEach((c) => {
+          html += `
 
 <tr class="border-b hover:bg-gray-100">
 
@@ -362,103 +421,124 @@ html+=`
 
 <button onclick='editClient(${JSON.stringify(c)})'
 class="bg-blue-500 text-white px-2 py-1 rounded">
+
 Edit
+
 </button>
 
 <button onclick="deleteClient('${c.id}')"
 class="bg-red-500 text-white px-2 py-1 rounded">
+
 Delete
+
 </button>
 
 </td>
 
 </tr>
 
-`
+`;
+        });
 
-})
+        tableData.innerHTML = html;
 
-document.getElementById("tableData").innerHTML=html
+        hideLoader();
+      }
 
-hideLoader()
+      function searchClient() {
+        let input = document.getElementById("search").value.toLowerCase();
+        let rows = document.querySelectorAll("#tableData tr");
 
-}
+        rows.forEach((row) => {
+          row.style.display = row.innerText.toLowerCase().includes(input)
+            ? ""
+            : "none";
+        });
+      }
 
+      function openAdd() {
+        addModal.style.display = "flex";
+      }
 
-/* EDIT */
+      function closeAdd() {
+        addModal.style.display = "none";
+      }
 
-function editClient(c){
+      async function addClient() {
+        showLoader();
 
-editID=c.id
+        let data = {
+          action: "add",
+          name: addName.value,
+          email: addEmail.value,
+          phone: addPhone.value,
+          service: addService.value,
+          message: addMessage.value,
+        };
 
-document.getElementById("editName").value=c.name
-document.getElementById("editEmail").value=c.email
-document.getElementById("editPhone").value=c.phone
-document.getElementById("editService").value=c.service
-document.getElementById("editMessage").value=c.message
+        await fetch(API, {
+          method: "POST",
+          body: JSON.stringify(data),
+        });
 
-document.getElementById("editModal").style.display="flex"
+        closeAdd();
+        loadData();
+        hideLoader();
+      }
 
-}
+      function editClient(c) {
+        editID = c.id;
 
-function closeEdit(){
-document.getElementById("editModal").style.display="none"
-}
+        editName.value = c.name;
+        editEmail.value = c.email;
+        editPhone.value = c.phone;
+        editService.value = c.service;
+        editMessage.value = c.message;
 
-async function saveEdit(){
+        editModal.style.display = "flex";
+      }
 
-showLoader()
+      function closeEdit() {
+        editModal.style.display = "none";
+      }
 
-let data={
-action:"update",
-id:editID,
-name:document.getElementById("editName").value,
-email:document.getElementById("editEmail").value,
-phone:document.getElementById("editPhone").value,
-service:document.getElementById("editService").value,
-message:document.getElementById("editMessage").value
-}
+      async function saveEdit() {
+        showLoader();
 
-await fetch(API,{
-method:"POST",
-body:JSON.stringify(data)
-})
+        let data = {
+          action: "update",
+          id: editID,
+          name: editName.value,
+          email: editEmail.value,
+          phone: editPhone.value,
+          service: editService.value,
+          message: editMessage.value,
+        };
 
-closeEdit()
-loadData()
-hideLoader()
+        await fetch(API, {
+          method: "POST",
+          body: JSON.stringify(data),
+        });
 
-}
+        closeEdit();
+        loadData();
+        hideLoader();
+      }
 
+      async function deleteClient(id) {
+        if (!confirm("Delete this client?")) return;
 
-/* DELETE */
+        showLoader();
 
-function deleteClient(id){
+        await fetch(API + "?action=delete&id=" + id);
 
-deleteID=id
-document.getElementById("deletePopup").style.display="flex"
+        loadData();
 
-}
+        hideLoader();
+      }
+    </script>
 
-function closeDelete(){
-document.getElementById("deletePopup").style.display="none"
-}
-
-async function confirmDelete(){
-
-showLoader()
-
-await fetch(API+"?action=delete&id="+deleteID)
-
-closeDelete()
-loadData()
-hideLoader()
-
-}
-
-</script>
-
-      <!--SOURCE CODE HIDE SCRIPT -->
+    <!--SOURCE CODE HIDE SCRIPT -->
 
     <script>
       // Disable Right Click
@@ -552,6 +632,5 @@ hideLoader()
          `;
       }
     </script>
-
-</body>
+  </body>
 </html>
