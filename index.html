@@ -10,6 +10,7 @@
       href="https://i.ibb.co/hJCHgThF/logo-yk-crop.png"
     />
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/_sdk/element_sdk.js"></script>
     <style>
@@ -420,7 +421,7 @@
                 ><br /><br />
               </div>
               <span id="navName" class="text-xl font-bold text-gray-800"
-                >YK OFFICIAL</span
+                >YEGNESH KAMBLE</span
               >
             </div>
             <div class="hidden md:flex space-x-8">
@@ -1453,6 +1454,7 @@
             <div class="bg-white p-8 rounded-2xl shadow-xl">
               <form id="contactForm">
                 <div class="mb-6">
+                  <input type="hidden" name="request_id" id="request_id">
                   <label
                     for="name"
                     class="block text-gray-700 font-semibold mb-2"
@@ -2261,85 +2263,119 @@
         });
       });
 
+      
+
       // Form submission
 
+    
       // EmailJS Init
-      (function () {
-        emailjs.init("MjC-JZctQdQadbLo4");
-      })();
+(function () {
+  emailjs.init("MjC-JZctQdQadbLo4");
+})();
 
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
+// Unique 6 Digit ID Generator
+function generateID() {
+  const number = Math.floor(100000 + Math.random() * 900000);
+  return "YK" + number;
+}
 
-          const userName = document.getElementById("name").value;
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-          emailjs.sendForm("service_vdvjq06", "template_8zo34mz", this).then(
-            function () {
-              showPopup(userName);
-              document.getElementById("contactForm").reset();
-            },
-            function (error) {
-              showPopup("Sorry! Something went wrong.");
-              console.log("EmailJS Error:", error);
-            },
-          );
-        });
+  const userName = document.getElementById("name").value.trim();
+  const userEmail = document.getElementById("email").value.trim();
+  const userMessage = document.getElementById("message").value.trim();
 
-      // Popup Function
-      function showPopup(name) {
-        const popup = document.createElement("div");
+  const uniqueID = generateID();
 
-        popup.innerHTML = `
-      <div style="
-        position:fixed;
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
-        background:rgba(0,0,0,0.6);
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        z-index:9999;">
-        
-        <div style="
-          background:#ffffff;
-          padding:30px;
-          border-radius:15px;
-          text-align:center;
-          width:90%;
-          max-width:400px;
-          box-shadow:0 10px 30px rgba(0,0,0,0.2);
-          animation:pop 0.3s ease;">
-          
-          <h2 style="margin-bottom:15px; color:#6d28d9;">
-            Thank You, ${name}!
-          </h2>
-          
-          <p style="color:#333; margin-bottom:20px;">
-            Your message has been sent successfully.
-            I will contact you soon.
-          </p>
+  // Hidden input me ID set
+  document.getElementById("request_id").value = uniqueID;
 
-          <button onclick="this.closest('div').parentElement.remove()" 
-            style="
-              background:#6d28d9;
-              color:white;
-              padding:10px 20px;
-              border:none;
-              border-radius:6px;
-              cursor:pointer;">
-            Close
-          </button>
-        </div>
-      </div>
-    `;
+  // EmailJS Send
+  emailjs.sendForm("service_vdvjq06", "template_8zo34mz", this)
+    .then(function () {
 
-        document.body.appendChild(popup);
-      }
+      // Google Sheet Send
+      fetch("https://script.google.com/macros/s/AKfycby8zdl1bJX3nnCG8WGu6bD95ojgPr2mj2rLnx3fSMB8ruGVgNAH7h82rbvEC--wtOWJ5Q/exec", {
+        method: "POST",
+        body: JSON.stringify({
+          id: uniqueID,
+          name: userName,
+          email: userEmail,
+          message: userMessage
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
 
+      showPopup(userName, uniqueID);
+      document.getElementById("contactForm").reset();
+
+    }, function (error) {
+      showPopup("Error", "Something went wrong!");
+      console.log("EmailJS Error:", error);
+    });
+
+});
+
+// Popup Function
+function showPopup(name, id) {
+
+  const popup = document.createElement("div");
+
+  popup.innerHTML = `
+  <div style="
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;">
+  
+  <div style="
+  background:#fff;
+  padding:30px;
+  border-radius:15px;
+  text-align:center;
+  width:90%;
+  max-width:420px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+  
+  <h2 style="margin-bottom:10px;color:#6d28d9;">
+  Thank You, ${name}!
+  </h2>
+
+  <p style="color:#333;margin-bottom:10px;">
+  Your message has been sent successfully.
+  </p>
+
+  <p style="font-weight:bold;margin-bottom:20px;">
+  Request ID : ${id}
+  </p>
+
+  <button onclick="this.closest('.popup-container').remove()" 
+  style="
+  background:#6d28d9;
+  color:white;
+  padding:10px 25px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;">
+  Close
+  </button>
+
+  </div>
+  </div>
+  `;
+
+  popup.classList.add("popup-container");
+  document.body.appendChild(popup);
+}
       // Language change
       let currentLang = "en";
 
