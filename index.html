@@ -461,7 +461,7 @@
               <span
                 id="navName"
                 class="text-xl font-montserrat font-bold text-gray-800"
-                >YK OFFICIAL</span
+                >YK <span class="text-blue-600">OFFICIAL</span></span
               >
             </div>
             <div class="hidden md:flex space-x-8">
@@ -716,11 +716,38 @@
           >
             <!-- DATE TIME -->
 
-            <div class="flex justify-center md:justify-start">
+            <div
+              class="flex items-center justify-center md:justify-start gap-4"
+            >
+              <!-- Notification Bell -->
+              <button
+                onclick="toggleNotify()"
+                class="relative group bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-md border border-white/20 whitespace-nowrap flex items-center gap-1 hover:bg-white/20 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 text-white transition-transform duration-200 group-hover:scale-110"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 22a2 2 0 002-2h-4a2 2 0 002 2zm6-6V11a6 6 0 10-12 0v5L4 18v1h16v-1l-2-2z"
+                  />
+                </svg>
+
+                <!-- Notification Dot -->
+                <span
+                  id="notifyDot"
+                  class="hidden absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-ping"
+                ></span>
+              </button>
+
+              <!-- Date Time -->
               <span
                 id="currentDateTime"
-                class="text-sm text-white bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-md border border-white/20"
-              ></span>
+                class="text-sm text-white bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-md border border-white/20 whitespace-nowrap"
+              >
+              </span>
             </div>
 
             <!-- BUTTONS -->
@@ -763,6 +790,43 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Notification Popup -->
+
+      <!-- Notification Popup -->
+
+      <div
+        id="notifyBox"
+        class="hidden fixed top-20 right-3 md:right-6 w-[94%] md:w-[380px] bg-white rounded-2xl shadow-2xl z-50 border-rounded-lg overflow-hidden"
+      >
+        <!-- Header (Drag Area) -->
+
+        <div
+          id="notifyHeader"
+          class="flex justify-between items-center p-4 border-b bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-t-2xl cursor-move"
+        >
+          <h2 class="font-semibold">🔔 Notifications</h2>
+
+          <button onclick="toggleNotify()" class="text-lg hover:scale-110">
+            ✖
+          </button>
+        </div>
+
+        <!-- Loader -->
+
+        <div id="notifyLoader" class="flex justify-center p-6 hidden">
+          <div
+            class="w-8 h-8 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"
+          ></div>
+        </div>
+
+        <!-- Notification List -->
+
+        <div
+          id="notifyList"
+          class="max-h-[420px] overflow-y-auto p-4 space-y-3 bg-gray-50"
+        ></div>
       </div>
 
       <!-- Side Cart Buttons -->
@@ -1672,6 +1736,12 @@
                 <a href="#skills" class="block hover:text-purple-400 transition"
                   >Skills</a
                 >
+
+                <a
+                  href="privacy.html"
+                  class="block hover:text-purple-400 transition"
+                  >Privacy Policy</a
+                >
               </div>
             </div>
 
@@ -1894,6 +1964,146 @@
       function scrollToTop() {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
+    </script>
+
+    <!--Notification Scripts-->
+    <script>
+      function toggleNotify() {
+        let box = document.getElementById("notifyBox");
+
+        box.classList.toggle("hidden");
+
+        if (!box.classList.contains("hidden")) {
+          showLoader();
+
+          setTimeout(loadNotifications, 700);
+        }
+      }
+
+      function showLoader() {
+        document.getElementById("notifyLoader").classList.remove("hidden");
+
+        document.getElementById("notifyList").innerHTML = "";
+      }
+
+      function loadNotifications() {
+        let list = document.getElementById("notifyList");
+
+        let loader = document.getElementById("notifyLoader");
+
+        loader.classList.add("hidden");
+
+        let data = JSON.parse(localStorage.getItem("yk_notifications")) || [];
+
+        list.innerHTML = "";
+
+        if (data.length == 0) {
+          list.innerHTML =
+            "<p class='text-gray-500 text-sm'>No notifications</p>";
+
+          return;
+        }
+
+        data.reverse().forEach((n, index) => {
+          let div = document.createElement("div");
+
+          div.className = "bg-white p-3 rounded-lg shadow relative";
+
+          div.innerHTML = `
+
+<button onclick="deleteNotify(${index})"
+class="absolute top-2 right-2 text-red-500 text-xs hover:text-red-700">
+✖
+</button>
+
+<h3 class="font-semibold text-sm">${n.title}</h3>
+
+<p class="text-xs text-gray-600">${n.message}</p>
+
+<span class="text-[10px] text-gray-400">${n.date}</span>
+
+`;
+
+          list.appendChild(div);
+        });
+
+        document.getElementById("notifyDot").classList.add("hidden");
+      }
+
+      function deleteNotify(index) {
+        let data = JSON.parse(localStorage.getItem("yk_notifications")) || [];
+
+        data.splice(index, 1);
+
+        localStorage.setItem("yk_notifications", JSON.stringify(data));
+
+        loadNotifications();
+      }
+
+      function checkNotify() {
+        let data = JSON.parse(localStorage.getItem("yk_notifications")) || [];
+
+        if (data.length > 0) {
+          document.getElementById("notifyDot").classList.remove("hidden");
+        }
+      }
+
+      checkNotify();
+    </script>
+
+    <!--notification movable script-->
+
+    <script>
+      const box = document.getElementById("notifyBox");
+      const header = document.getElementById("notifyHeader");
+
+      let offsetX = 0;
+      let offsetY = 0;
+      let isDragging = false;
+
+      // Mouse Drag
+
+      header.addEventListener("mousedown", (e) => {
+        isDragging = true;
+
+        offsetX = e.clientX - box.offsetLeft;
+        offsetY = e.clientY - box.offsetTop;
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+
+        box.style.left = e.clientX - offsetX + "px";
+        box.style.top = e.clientY - offsetY + "px";
+      });
+
+      document.addEventListener("mouseup", () => {
+        isDragging = false;
+      });
+
+      // Touch Drag (Mobile)
+
+      header.addEventListener("touchstart", (e) => {
+        let touch = e.touches[0];
+
+        isDragging = true;
+
+        offsetX = touch.clientX - box.offsetLeft;
+        offsetY = touch.clientY - box.offsetTop;
+      });
+
+      document.addEventListener("touchmove", (e) => {
+        if (!isDragging) return;
+
+        let touch = e.touches[0];
+
+        box.style.left = touch.clientX - offsetX + "px";
+        box.style.top = touch.clientY - offsetY + "px";
+      });
+
+      document.addEventListener("touchend", () => {
+        isDragging = false;
+      });
     </script>
 
     <script>
