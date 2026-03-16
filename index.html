@@ -3117,46 +3117,33 @@ Fill Form Again
     </script>
 
     <!-- ADVANCED SOURCE PROTECTION -->
-    <script>
-      document.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-        triggerSecurity();
-      });
+   <!-- ADVANCED SOURCE PROTECTION -->
+   <script>
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+  triggerSecurity();
+});
 
-      document.onkeydown = function (e) {
-        if (e.keyCode == 123) {
-          triggerSecurity();
-          return false;
-        } // F12
+document.onkeydown = function (e) {
+  if (e.keyCode == 123) { triggerSecurity(); return false; } // F12
+  if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { triggerSecurity(); return false; } // Ctrl+Shift+I
+  if (e.ctrlKey && e.shiftKey && e.keyCode == 74) { triggerSecurity(); return false; } // Ctrl+Shift+J
+  if (e.ctrlKey && e.keyCode == 85) { triggerSecurity(); return false; } // Ctrl+U
+};
 
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-          triggerSecurity();
-          return false;
-        } // Ctrl+Shift+I
+setInterval(function () {
+  const devtools =
+    window.outerWidth - window.innerWidth > 160 ||
+    window.outerHeight - window.innerHeight > 160;
 
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-          triggerSecurity();
-          return false;
-        } // Ctrl+Shift+J
+  if (devtools) {
+    triggerSecurity();
+  }
+}, 1000);
 
-        if (e.ctrlKey && e.keyCode == 85) {
-          triggerSecurity();
-          return false;
-        } // Ctrl+U
-      };
+function triggerSecurity() {
 
-      setInterval(function () {
-        const devtools =
-          window.outerWidth - window.innerWidth > 160 ||
-          window.outerHeight - window.innerHeight > 160;
-
-        if (devtools) {
-          triggerSecurity();
-        }
-      }, 1000);
-
-      function triggerSecurity() {
-        document.body.innerHTML = `
+document.body.innerHTML = `
 
 <style>
 
@@ -3219,6 +3206,12 @@ color:#cbd5f5;
 line-height:1.6;
 }
 
+.reload{
+margin-top:15px;
+font-size:18px;
+color:#38bdf8;
+}
+
 .footer{
 margin-top:25px;
 font-size:14px;
@@ -3266,6 +3259,10 @@ Unauthorized inspection, copying, or modification of source code is prohibited.
 
 </div>
 
+<div class="reload">
+Reloading page in <span id="count">5</span> seconds...
+</div>
+
 <div class="footer">
 
 Founder : <b>Yegnesh Kamble</b><br>
@@ -3281,7 +3278,27 @@ Email : <b>Yegnesh7219@gmail.com</b>
 </div>
 
 `;
-      }
-    </script>
+
+let sec = 5;
+
+let timer = setInterval(function(){
+
+sec--;
+
+let el = document.getElementById("count");
+
+if(el){
+el.innerText = sec;
+}
+
+if(sec <= 0){
+clearInterval(timer);
+location.reload();
+}
+
+},1000);
+
+}
+</script>
   </body>
 </html>
