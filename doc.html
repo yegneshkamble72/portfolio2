@@ -1879,28 +1879,7 @@
 <!-- DOC PAGE SOURCE PROTECTION -->
 <script>
 
-document.addEventListener("contextmenu", e => {
-  e.preventDefault();
-  triggerDocSecurity();
-});
-
-document.onkeydown = function(e){
-  if(e.keyCode == 123){ triggerDocSecurity(); return false;} // F12
-  if(e.ctrlKey && e.shiftKey && e.keyCode == 73){ triggerDocSecurity(); return false;} // Ctrl+Shift+I
-  if(e.ctrlKey && e.shiftKey && e.keyCode == 74){ triggerDocSecurity(); return false;} // Ctrl+Shift+J
-  if(e.ctrlKey && e.keyCode == 85){ triggerDocSecurity(); return false;} // Ctrl+U
-};
-
-setInterval(function(){
-  const devtools =
-    window.outerWidth - window.innerWidth > 160 ||
-    window.outerHeight - window.innerHeight > 160;
-  if(devtools){
-    triggerDocSecurity();
-  }
-}, 1000);
-
-function triggerDocSecurity(){
+function triggerSecurity(){
 
 document.body.innerHTML = `
 
@@ -1912,57 +1891,46 @@ height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-background:linear-gradient(135deg,#1e293b,#0f172a,#1e293b);
+background:linear-gradient(135deg,#020617,#0f172a,#020617);
 background-size:300% 300%;
 animation:bgMove 6s infinite alternate;
-font-family:Poppins, sans-serif;
+font-family:Arial,sans-serif;
 color:white;
 }
 
-.security-box{
-position:relative;
+.box{
 text-align:center;
 padding:50px;
 border-radius:16px;
-backdrop-filter:blur(12px);
+backdrop-filter:blur(10px);
 background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.1);
 box-shadow:0 0 40px rgba(0,0,0,0.6);
-animation:fadeIn 0.6s ease;
 max-width:650px;
 }
 
-.close-btn{
-position:absolute;
-top:15px;
-right:18px;
-font-size:22px;
-cursor:pointer;
-color:#94a3b8;
-transition:0.3s;
-}
-
-.close-btn:hover{
-color:white;
-transform:scale(1.2);
-}
-
-.warning-icon{
+.icon{
 font-size:60px;
-animation:pulse 1.5s infinite;
 margin-bottom:20px;
+animation:pulse 1.5s infinite;
 }
 
 .title{
-font-size:34px;
+font-size:32px;
 font-weight:700;
 margin-bottom:10px;
 }
 
-.subtitle{
+.text{
 font-size:16px;
 color:#cbd5f5;
 line-height:1.6;
+}
+
+.reload{
+margin-top:20px;
+font-size:18px;
+color:#38bdf8;
 }
 
 .footer{
@@ -1972,7 +1940,8 @@ color:#94a3b8;
 }
 
 .brand{
-margin-top:20px;
+margin-top:15px;
+font-size:15px;
 font-weight:600;
 color:#38bdf8;
 }
@@ -1983,11 +1952,6 @@ color:#38bdf8;
 100%{transform:scale(1)}
 }
 
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px)}
-to{opacity:1;transform:translateY(0)}
-}
-
 @keyframes bgMove{
 0%{background-position:0% 50%}
 100%{background-position:100% 50%}
@@ -1995,18 +1959,20 @@ to{opacity:1;transform:translateY(0)}
 
 </style>
 
-<div class="security-box">
+<div class="box">
 
-<div class="close-btn" onclick="location.reload()">✕</div>
+<div class="icon">⚠</div>
 
-<div class="warning-icon">📄</div>
+<div class="title">Developer Tools Detected</div>
 
-<div class="title">Documentation Protection</div>
+<div class="text">
+This documentation page is protected.<br><br>
+Access to source code or developer tools is not allowed.<br>
+Copying or inspecting this page is prohibited.
+</div>
 
-<div class="subtitle">
-Access to this documentation page is restricted.<br><br>
-Inspect Element / Developer Tools detected.<br>
-Unauthorized copying or modification of documentation is prohibited.
+<div class="reload">
+Reloading page in <span id="count">5</span> seconds...
 </div>
 
 <div class="footer">
@@ -2020,10 +1986,67 @@ Email : <b>Yegnesh7219@gmail.com</b>
 </div>
 
 </div>
-
 `;
 
+let sec = 5;
+
+let timer = setInterval(function(){
+
+sec--;
+
+let el = document.getElementById("count");
+
+if(el){
+el.innerText = sec;
 }
+
+if(sec <= 0){
+clearInterval(timer);
+location.reload();
+}
+
+},1000);
+
+}
+
+// Right click block
+document.addEventListener("contextmenu",function(e){
+e.preventDefault();
+triggerSecurity();
+});
+
+// Key protection
+document.addEventListener("keydown",function(e){
+
+if(e.key === "F12"){
+e.preventDefault();
+triggerSecurity();
+}
+
+if(e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")){
+e.preventDefault();
+triggerSecurity();
+}
+
+if(e.ctrlKey && e.key === "u"){
+e.preventDefault();
+triggerSecurity();
+}
+
+});
+
+// DevTools detect
+setInterval(function(){
+
+const devtools =
+window.outerWidth - window.innerWidth > 160 ||
+window.outerHeight - window.innerHeight > 160;
+
+if(devtools){
+triggerSecurity();
+}
+
+},1000);
 
 </script>
   </body>
