@@ -12,6 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="/_sdk/element_sdk.js"></script>
     <style>
       body {
@@ -748,6 +750,16 @@
                 class="text-sm text-white bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-md border border-white/20 whitespace-nowrap"
               >
               </span>
+
+              <a
+                href="doc.html" target="_blank" rel="noopener noreferrer"
+                class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 backdrop-blur-md text-white text-sm border border-white/20 whitespace-nowrap hover:bg-white/20 transition"
+              >
+                <i
+                  data-lucide="file-text"
+                  style="width: 18px; height: 18px"
+                ></i>
+              </a>
             </div>
 
             <!-- BUTTONS -->
@@ -1497,9 +1509,7 @@
       <!-- FAQ SECTION -->
       <section class="py-20 bg-gradient-to-b from-[#f8fafc] to-[#eef2ff]">
         <div class="max-w-6xl mx-auto px-6">
-          <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">
-             FAQ
-          </h2>
+          <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">FAQ</h2>
 
           <p class="text-center text-gray-500 mb-12">
             Frequently Asked Questions
@@ -1584,14 +1594,19 @@
             ✕
           </button>
 
-          <div id="popupLoader" class="flex flex-col items-center justify-center mb-4">
+          <div
+            id="popupLoader"
+            class="flex flex-col items-center justify-center mb-4"
+          >
             <div
               class="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"
-            ></div> <br>
-          
-            <div class="text-s font-bold font-montserrat  text-gray-800">YK <span class="text-blue-600">OFFICIAL</span> </div>
+            ></div>
+            <br />
+
+            <div class="text-s font-bold font-montserrat text-gray-800">
+              YK <span class="text-blue-600">OFFICIAL</span>
+            </div>
           </div>
-          
 
           <h3
             id="faqTitle"
@@ -2072,6 +2087,12 @@
       function scrollToTop() {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
+    </script>
+
+    <!-- icon script -->
+
+    <script>
+      lucide.createIcons();
     </script>
 
     <!-- FAQ Scripts -->
@@ -3095,98 +3116,171 @@ Fill Form Again
       })();
     </script>
 
-    <!--SOURCE CODE HIDE SCRIPT -->
-
+    <!-- ADVANCED SOURCE PROTECTION -->
     <script>
-      // Disable Right Click
-      document.addEventListener("contextmenu", function (e) {
+      document.addEventListener("contextmenu", (e) => {
         e.preventDefault();
-        showWarning();
+        triggerSecurity();
       });
 
-      // Disable Keyboard Shortcuts
       document.onkeydown = function (e) {
         if (e.keyCode == 123) {
-          // F12
-          showWarning();
+          triggerSecurity();
           return false;
-        }
+        } // F12
 
         if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-          // Ctrl+Shift+I
-          showWarning();
+          triggerSecurity();
           return false;
-        }
+        } // Ctrl+Shift+I
 
         if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-          // Ctrl+Shift+J
-          showWarning();
+          triggerSecurity();
           return false;
-        }
+        } // Ctrl+Shift+J
 
         if (e.ctrlKey && e.keyCode == 85) {
-          // Ctrl+U
-          showWarning();
+          triggerSecurity();
           return false;
-        }
-
-        if (e.ctrlKey && e.keyCode == 67) {
-          // Ctrl+C
-          showWarning();
-          return false;
-        }
+        } // Ctrl+U
       };
 
-      // DevTools detection
       setInterval(function () {
-        const widthThreshold = window.outerWidth - window.innerWidth > 160;
-        const heightThreshold = window.outerHeight - window.innerHeight > 160;
+        const devtools =
+          window.outerWidth - window.innerWidth > 160 ||
+          window.outerHeight - window.innerHeight > 160;
 
-        if (widthThreshold || heightThreshold) {
-          showWarning();
+        if (devtools) {
+          triggerSecurity();
         }
       }, 1000);
 
-      // Warning Message
-
-      function showWarning() {
+      function triggerSecurity() {
         document.body.innerHTML = `
-         <div style="
-         height:100vh;
-         display:flex;
-         align-items:center;
-         justify-content:center;
-         flex-direction:column;
-         background:#000;
-         color:#fff;
-         font-family:sans-serif;
-         text-align:center;
-         padding:20px;
-         ">
-         
-         <h1 style="font-size:40px;margin-bottom:20px;">
-         ⚠ ACCESS DENIED
-         </h1>
-         
-         <p style="font-size:18px;max-width:600px;">
-         Inspect Element / Developer Tools detected.<br><br>
-         
-         This website is protected by security system.<br>
-         Copying source code is strictly prohibited.
-         </p>
-         
-         <p style="margin-top:20px;font-size:16px;color:#aaa;">
-         © YK OFFICIAL - Yegnesh Kamble<br>
-         Founder: <b>Yegnesh Kamble</b> <br>
-         Phone: <b>7219274312</b><br>
-         Email: <b>Yegnesh7219@gmail.com</b>
-         </p>
-         
-         <p style="margin-top:20px;font-size:16px;color:#aaa;">
-         <b>© 2026 YK OFFICIAL. All rights reserved.</b>
-         </p>
-         </div>
-         `;
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#020617,#0f172a,#020617);
+background-size:300% 300%;
+animation:bgMove 6s infinite alternate;
+font-family:system-ui;
+color:white;
+}
+
+.security-box{
+position:relative;
+text-align:center;
+padding:50px;
+border-radius:16px;
+backdrop-filter:blur(12px);
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 40px rgba(0,0,0,0.6);
+animation:fadeIn 0.6s ease;
+max-width:650px;
+}
+
+.close-btn{
+position:absolute;
+top:15px;
+right:18px;
+font-size:22px;
+cursor:pointer;
+color:#94a3b8;
+transition:0.3s;
+}
+
+.close-btn:hover{
+color:white;
+transform:scale(1.2);
+}
+
+.warning-icon{
+font-size:60px;
+animation:pulse 1.5s infinite;
+margin-bottom:20px;
+}
+
+.title{
+font-size:34px;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.subtitle{
+font-size:16px;
+color:#cbd5f5;
+line-height:1.6;
+}
+
+.footer{
+margin-top:25px;
+font-size:14px;
+color:#94a3b8;
+}
+
+.brand{
+margin-top:20px;
+font-weight:600;
+color:#38bdf8;
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.15)}
+100%{transform:scale(1)}
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%}
+100%{background-position:100% 50%}
+}
+
+</style>
+
+<div class="security-box">
+
+<div class="close-btn" onclick="location.reload()">✕</div>
+
+<div class="warning-icon">⚠</div>
+
+<div class="title">Developer Tools Detected</div>
+
+<div class="subtitle">
+
+Access to developer tools or page source has been blocked.<br><br>
+
+This website is protected by <b>YK OFFICIAL Security System</b>.<br>
+Unauthorized inspection, copying, or modification of source code is prohibited.
+
+</div>
+
+<div class="footer">
+
+Founder : <b>Yegnesh Kamble</b><br>
+Phone : <b>7219274312</b><br>
+Email : <b>Yegnesh7219@gmail.com</b>
+
+</div>
+
+<div class="brand">
+© 2026 YK OFFICIAL • All Rights Reserved
+</div>
+
+</div>
+
+`;
       }
     </script>
   </body>
