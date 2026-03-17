@@ -15,18 +15,6 @@
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="/_sdk/element_sdk.js"></script>
-
-
-
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "b62eb522-9ab2-45be-be82-434fee47becb",
-    });
-  });
-</script>
     <style>
       body {
         box-sizing: border-box;
@@ -2095,6 +2083,37 @@
     <!-- Toast Notification -->
     <div id="toast" class="toast"></div>
 
+
+
+
+    
+
+    <!-- QR PANEL -->
+<div id="qrPanel"
+class="fixed top-1/2 -left-80 transform -translate-y-1/2
+w-40 bg-indigo-600
+text-white p-4 rounded-r-2xl shadow-2xl
+transition-all duration-500 z-10">
+
+  <!-- Arrow Button -->
+  <button onclick="toggleQR()"
+    class="absolute -right-6 top-7 -translate-y-1/2
+    bg-indigo-600 w-6 h-7 rounded-r-lg z-1 flex items-center justify-center shadow">
+    >
+  </button>
+
+  <!-- QR Content -->
+  <div class="text-center">
+    <img 
+      src="https://i.ibb.co/ch1wj1Sw/YK-Official-512.jpg"
+      class="mx-auto rounded-lg bg-white p-2"
+    />
+
+    <p class="mt-3 font-semibold text-s">Scan Me</p>
+  </div>
+
+</div>
+
     <script>
       function scrollToTop() {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -3128,32 +3147,76 @@ Fill Form Again
       })();
     </script>
 
+
+
+
+
+  <!--QR CODE-->
+
+  <script>
+  let panel = document.getElementById("qrPanel");
+  let visible = false;
+
+  function showQR() {
+    panel.classList.remove("-left-80");
+    panel.classList.add("left-0");
+    visible = true;
+  }
+
+  function hideQR() {
+    panel.classList.remove("left-0");
+    panel.classList.add("-left-80");
+    visible = false;
+  }
+
+  function toggleQR() {
+    visible ? hideQR() : showQR();
+  }
+
+  // Auto show every 10 sec
+  setInterval(() => {
+    showQR();
+
+    setTimeout(() => {
+      hideQR();
+    }, 5000); // 10 sec visible
+  }, 10000); // every 5 sec
+</script>
+
     <!-- ADVANCED SOURCE PROTECTION -->
-   <!-- ADVANCED SOURCE PROTECTION -->
-   <script>
-document.addEventListener("contextmenu", (e) => {
-  e.preventDefault();
-  triggerSecurity();
+  
+<script>
+
+document.addEventListener("contextmenu", e=>{
+e.preventDefault();
+triggerSecurity();
 });
 
-document.onkeydown = function (e) {
-  if (e.keyCode == 123) { triggerSecurity(); return false; } // F12
-  if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { triggerSecurity(); return false; } // Ctrl+Shift+I
-  if (e.ctrlKey && e.shiftKey && e.keyCode == 74) { triggerSecurity(); return false; } // Ctrl+Shift+J
-  if (e.ctrlKey && e.keyCode == 85) { triggerSecurity(); return false; } // Ctrl+U
-};
+document.addEventListener("keydown",function(e){
 
-setInterval(function () {
-  const devtools =
-    window.outerWidth - window.innerWidth > 160 ||
-    window.outerHeight - window.innerHeight > 160;
+if(e.key==="F12"){triggerSecurity();}
 
-  if (devtools) {
-    triggerSecurity();
-  }
-}, 1000);
+if(e.ctrlKey && e.shiftKey && e.key==="I"){triggerSecurity();}
 
-function triggerSecurity() {
+if(e.ctrlKey && e.shiftKey && e.key==="J"){triggerSecurity();}
+
+if(e.ctrlKey && e.key==="U"){triggerSecurity();}
+
+});
+
+setInterval(function(){
+
+const devtools =
+window.outerWidth - window.innerWidth > 160 ||
+window.outerHeight - window.innerHeight > 160;
+
+if(devtools){
+triggerSecurity();
+}
+
+},1000);
+
+function triggerSecurity(){
 
 document.body.innerHTML = `
 
@@ -3167,7 +3230,7 @@ align-items:center;
 justify-content:center;
 background:linear-gradient(135deg,#020617,#0f172a,#020617);
 background-size:300% 300%;
-animation:bgMove 6s infinite alternate;
+animation:bgMove 8s infinite alternate;
 font-family:system-ui;
 color:white;
 }
@@ -3177,43 +3240,41 @@ position:relative;
 text-align:center;
 padding:50px;
 border-radius:16px;
-backdrop-filter:blur(12px);
 background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
 border:1px solid rgba(255,255,255,0.08);
 box-shadow:0 0 40px rgba(0,0,0,0.6);
-animation:fadeIn 0.6s ease;
-max-width:650px;
+max-width:600px;
+animation:fadeIn .6s ease;
 }
 
 .close-btn{
 position:absolute;
-top:15px;
-right:18px;
-font-size:22px;
+top:12px;
+right:16px;
+font-size:20px;
 cursor:pointer;
 color:#94a3b8;
-transition:0.3s;
 }
 
 .close-btn:hover{
 color:white;
-transform:scale(1.2);
 }
 
-.warning-icon{
+.icon{
 font-size:60px;
+margin-bottom:15px;
 animation:pulse 1.5s infinite;
-margin-bottom:20px;
 }
 
 .title{
-font-size:34px;
+font-size:32px;
 font-weight:700;
 margin-bottom:10px;
 }
 
 .subtitle{
-font-size:16px;
+font-size:15px;
 color:#cbd5f5;
 line-height:1.6;
 }
@@ -3258,7 +3319,7 @@ to{opacity:1;transform:translateY(0)}
 
 <div class="close-btn" onclick="location.reload()">✕</div>
 
-<div class="warning-icon">⚠</div>
+<div class="icon">⚠</div>
 
 <div class="title">Developer Tools Detected</div>
 
@@ -3266,29 +3327,26 @@ to{opacity:1;transform:translateY(0)}
 
 Access to developer tools or page source has been blocked.<br><br>
 
-This website is protected by <b>YK OFFICIAL Security System</b>.<br>
-Unauthorized inspection, copying, or modification of source code is prohibited.
+This website is protected by <b>YK OFFICIAL Security</b>.<br>
+Unauthorized inspection or copying of source code is not allowed.
 
 </div>
 
 <div class="reload">
-Reloading page in <span id="count">5</span> seconds...
+Reloading in <span id="count">5</span> seconds...
 </div>
 
 <div class="footer">
-
 Founder : <b>Yegnesh Kamble</b><br>
 Phone : <b>7219274312</b><br>
 Email : <b>Yegnesh7219@gmail.com</b>
-
 </div>
 
 <div class="brand">
-© 2026 YK OFFICIAL • All Rights Reserved
+© 2026 YK OFFICIAL
 </div>
 
 </div>
-
 `;
 
 let sec = 5;
@@ -3297,13 +3355,11 @@ let timer = setInterval(function(){
 
 sec--;
 
-let el = document.getElementById("count");
+const el=document.getElementById("count");
 
-if(el){
-el.innerText = sec;
-}
+if(el){el.innerText=sec;}
 
-if(sec <= 0){
+if(sec<=0){
 clearInterval(timer);
 location.reload();
 }
@@ -3311,6 +3367,9 @@ location.reload();
 },1000);
 
 }
+
 </script>
+
+
   </body>
 </html>
