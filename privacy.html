@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Privacy Policy | YK OFFICIAL</title>
+    <title>YK OFFICIAL | Privacy Policy</title>
 
     <link rel="icon" href="https://i.ibb.co/hJCHgThF/logo-yk-crop.png" />
 
@@ -223,6 +223,7 @@
         </p>
       </div>
     </section>
+
     <!-- FOOTER -->
 
     <footer class="bg-black border-t border-gray-800">
@@ -234,7 +235,9 @@
         <div class="flex gap-6 text-sm text-gray-400">
           <a href="#" class="hover:text-white"> Privacy Policy </a>
 
-          <button onclick="openTerms()" class="hover:text-white">Terms</button>
+          <a href="terms.html" target="_blank" class="hover:text-white"
+            >Terms</a
+          >
 
           <button onclick="openContact()" class="hover:text-white">
             Contact
@@ -243,25 +246,23 @@
       </div>
     </footer>
 
-    <!-- TERMS POPUP -->
-
+    <!-- YK LOADER -->
     <div
-      id="termsPopup"
-      class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50"
+      id="ykLoader"
+      class="fixed inset-0 bg-black flex items-center justify-center z-[999] hidden"
     >
-      <div
-        class="bg-gray-900 text-white p-6 rounded-xl w-[90%] md:w-[500px] relative"
-      >
-        <button onclick="closeTerms()" class="absolute top-3 right-3 text-xl">
-          ✕
-        </button>
+      <div class="text-center">
+        <!-- Spinner -->
+        <div
+          class="w-12 h-12 border-4 border-gray-700 border-t-white rounded-full animate-spin mx-auto mb-4"
+        ></div>
 
-        <h2 class="text-xl font-semibold mb-4">Terms & Conditions</h2>
+        <!-- Text -->
+        <h2 class="text-white text-lg font-semibold tracking-wide">
+          YK OFFICIAL
+        </h2>
 
-        <p class="text-gray-400 text-sm">
-          All content of YK OFFICIAL belongs to the website owner. Unauthorized
-          copying is prohibited.
-        </p>
+        <p class="text-gray-400 text-sm mt-1">Loading...</p>
       </div>
     </div>
 
@@ -323,6 +324,103 @@
         </button>
       </div>
     </div>
+
+    <!-- HELP BUTTON -->
+    <button
+      onclick="openHelp()"
+      class="fixed bottom-6 right-6 bg-blue-600 text-white px-5 py-3 rounded-full shadow-lg"
+    >
+      ❓ Help
+    </button>
+
+    <!-- HELP POPUP -->
+    <div
+      id="helpPopup"
+      class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+    >
+      <div
+        class="bg-gray-900 p-6 rounded-xl w-[90%] md:w-[400px] text-white relative"
+      >
+        <button onclick="closeHelp()" class="absolute right-3 top-2">✖</button>
+
+        <h2 class="text-lg font-bold mb-3">Help</h2>
+
+        <p class="text-sm mb-2"><b>Q:</b> Terms accept karna zaroori hai?</p>
+        <p class="text-sm text-gray-400 mb-2">Yes, required.</p>
+
+        <p>Email: YEGNESH7219@EMAIL.COM</p>
+        <p>Phone: +91 7219274312</p>
+      </div>
+    </div>
+
+    <script>
+      // Help
+      function openHelp() {
+        document.getElementById("helpPopup").classList.remove("hidden");
+      }
+      function closeHelp() {
+        document.getElementById("helpPopup").classList.add("hidden");
+      }
+
+      // Contact
+      function openContact() {
+        document.getElementById("contactPopup").classList.remove("hidden");
+      }
+      function closeContact() {
+        document.getElementById("contactPopup").classList.add("hidden");
+      }
+
+      // LOADER FUNCTIONS
+      function showLoader() {
+        document.getElementById("ykLoader").classList.remove("hidden");
+      }
+
+      function hideLoader() {
+        document.getElementById("ykLoader").classList.add("hidden");
+      }
+
+      // OPEN TERMS WITH LOADER
+      function openTerms() {
+        showLoader();
+
+        setTimeout(() => {
+          hideLoader();
+          document.getElementById("termsModal").classList.remove("hidden");
+        }, 1200); // smooth delay
+      }
+
+      // CLOSE TERMS
+      function closeTerms() {
+        document.getElementById("termsModal").classList.add("hidden");
+      }
+
+      // SCROLL ENABLE BUTTON
+      let content = document.getElementById("termsContent");
+
+      content.addEventListener("scroll", function () {
+        if (
+          content.scrollTop + content.clientHeight >=
+          content.scrollHeight - 5
+        ) {
+          let btn = document.getElementById("acceptBtn");
+          btn.disabled = false;
+
+          btn.classList.remove("bg-gray-600", "cursor-not-allowed");
+          btn.classList.add("bg-white", "cursor-pointer");
+        }
+      });
+
+      // ACCEPT WITH LOADER
+      document.getElementById("acceptBtn").onclick = function () {
+        showLoader();
+
+        setTimeout(() => {
+          hideLoader();
+          closeTerms();
+          alert("Terms Accepted ✅");
+        }, 1200);
+      };
+    </script>
 
     <!-- EMAILJS -->
 
