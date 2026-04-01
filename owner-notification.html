@@ -52,50 +52,77 @@
         YK <span class="text-blue-400">OFFICIAL</span>
       </div>
     </div>
-
     <!-- NAVBAR -->
-
     <header class="backdrop-blur-md bg-white/70 border-b sticky top-0 z-40">
       <div
         class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
       >
         <div class="flex items-center gap-3">
           <img src="https://i.ibb.co/hJCHgThF/logo-yk-crop.png" class="w-10" />
-
           <h1 class="font-bold text-xl text-black tracking-wide">
             YK <span class="text-blue-600">OFFICIAL</span>
           </h1>
         </div>
+        <nav class="flex items-center gap-3 text-sm font-medium">
+          <!-- HELP BUTTON -->
+          <button
+            onclick="openHelp()"
+            class="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 backdrop-blur shadow hover:bg-indigo-50 hover:text-indigo-600 transition"
+          >
+            <!-- ICON -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 18h.01M9.09 9a3 3 0 115.82 1c0 2-3 2-3 4"
+              ></path>
+            </svg>
 
-        <nav class="flex items-center gap-6 text-sm font-medium">
-          <button onclick="openHelp()" class="hover:text-indigo-600 transition">
             Help
           </button>
 
+          <!-- CONTACT BUTTON -->
           <button
             onclick="openContact()"
-            class="hover:text-indigo-600 transition"
+            class="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/80 backdrop-blur shadow hover:bg-purple-50 hover:text-purple-600 transition"
           >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+              ></path>
+            </svg>
+
             Contact
           </button>
         </nav>
       </div>
     </header>
-
     <!-- HERO -->
-
     <section class="text-center py-12 px-4">
       <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
         Website Notification Panel
       </h1>
-
       <p class="text-gray-600 text-sm md:text-base">
         Send instant notifications to YK Official website users
       </p>
     </section>
-
     <!-- MAIN PANEL -->
-
     <div class="flex justify-center px-4 pb-16">
       <div
         class="bg-white/90 backdrop-blur-lg w-full max-w-lg rounded-3xl shadow-2xl p-8 border"
@@ -103,27 +130,23 @@
         <h2 class="text-xl font-semibold text-center mb-6 text-gray-700">
           Create Notification
         </h2>
-
         <input
           id="title"
           placeholder="Notification Title"
           class="w-full border border-gray-300 px-4 py-3 rounded-xl mb-4 focus:outline-none focus:ring-2 focus:ring-indigo-400"
         />
-
         <textarea
           id="message"
           rows="4"
           placeholder="Notification Message"
           class="w-full border border-gray-300 px-4 py-3 rounded-xl mb-4 focus:outline-none focus:ring-2 focus:ring-purple-400"
         ></textarea>
-
         <button
           onclick="addNotification()"
           class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-xl font-medium hover:scale-105 active:scale-95 transition"
         >
           Send Notification
         </button>
-
         <div id="loader" class="hidden flex justify-center mt-4">
           <div
             class="w-8 h-8 border-4 border-purple-600 border-t-transparent rounded-full animate-spin"
@@ -131,9 +154,7 @@
         </div>
       </div>
     </div>
-
     <!-- SUCCESS POPUP -->
-
     <div
       id="successPopup"
       class="hidden fixed inset-0 flex items-center justify-center bg-black/40 z-50"
@@ -144,12 +165,10 @@
         <h3 class="text-lg font-semibold text-green-600 mb-2">
           Notification Sent
         </h3>
-
         <p class="text-sm text-gray-600 mb-4">
           Notification successfully saved to Google Sheet and sent to YK
           OFFICIAL website.
         </p>
-
         <button
           onclick="closePopup()"
           class="bg-green-500 text-white px-4 py-2 rounded-lg"
@@ -158,9 +177,7 @@
         </button>
       </div>
     </div>
-
     <!-- HELP POPUP -->
-
     <div
       id="helpPopup"
       class="hidden fixed inset-0 bg-black/40 flex items-center justify-center z-50"
@@ -171,9 +188,7 @@
         <button onclick="closeHelp()" class="absolute right-4 top-3 text-xl">
           ✖
         </button>
-
         <h2 class="text-xl font-bold mb-3 text-indigo-600">Help</h2>
-
         <p class="text-sm text-gray-600 leading-relaxed">
           1. Enter notification title and message. <br />
           2. Click Add Notification. <br />
@@ -181,9 +196,7 @@
         </p>
       </div>
     </div>
-
     <!-- CONTACT POPUP -->
-
     <div
       id="contactPopup"
       class="hidden fixed inset-0 bg-black/40 flex items-center justify-center z-50"
@@ -194,17 +207,68 @@
         <button onclick="closeContact()" class="absolute right-4 top-3 text-xl">
           ✖
         </button>
-
         <h2 class="text-xl font-bold mb-3 text-purple-600">Contact</h2>
-
         <p class="text-sm text-gray-600 mb-2">Owner Support</p>
-
         <p class="text-sm">📧 Email: YEGNESH7219@email.com</p>
-
         <p class="text-sm">📱 WhatsApp: +91 7219274312</p>
       </div>
     </div>
 
+    <!-- ====== NOTIFICATION SECTION ====== -->
+    <div class="max-w-6xl mx-auto px-4 mt-10">
+      <!-- HEADER -->
+      <div
+        class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4"
+      >
+        <div>
+          <h2 class="text-2xl font-bold text-gray-800">
+            📢 Notifications Dashboard
+          </h2>
+          <p class="text-sm text-gray-500">
+            Manage all your website notifications in one place
+          </p>
+        </div>
+
+        <button
+          onclick="refreshData(this)"
+          class="flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-5 py-2.5 rounded-xl shadow-lg hover:scale-105 active:scale-95 transition"
+        >
+          🔄 Refresh
+        </button>
+      </div>
+
+      <!-- TABLE CARD -->
+      <div
+        class="bg-white/80 backdrop-blur-xl border rounded-2xl shadow-xl overflow-hidden"
+      >
+        <!-- TABLE -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <!-- HEAD -->
+            <thead
+              class="bg-gradient-to-r from-indigo-100 to-purple-100 text-gray-700"
+            >
+              <tr>
+                <th class="p-4 text-left">📌 Title</th>
+                <th class="p-4 text-left">💬 Message</th>
+                <th class="p-4 text-left">📅 Date</th>
+                <th class="p-4 text-center">⚙ Action</th>
+              </tr>
+            </thead>
+
+            <!-- BODY -->
+            <tbody id="dataTable" class="divide-y">
+              <!-- EMPTY STATE -->
+              <tr>
+                <td colspan="4" class="text-center py-10 text-gray-400">
+                  No notifications found 🚫
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
     <!-- PROFESSIONAL BLACK FOOTER -->
 
     <footer class="bg-black text-gray-300 mt-16">
@@ -374,13 +438,70 @@
       const API_URL =
         "https://script.google.com/macros/s/AKfycbyUXELsEUDhfZHs4yVXNuKPfoEGmniwLeKy-HcHvJz-yYFp2Wm-H1wyeoRlB6m1sldL5w/exec";
 
+      // ✅ SAFE TEXT (fix quotes issue)
+      function safeText(text) {
+        return text.replace(/'/g, "\\'").replace(/"/g, "&quot;");
+      }
+
+      // ✅ LOAD / REFRESH DATA
+      function refreshData(btn) {
+        if (btn) {
+          btn.innerText = "⏳ Loading...";
+          btn.disabled = true;
+        }
+
+        document.getElementById("loader").classList.remove("hidden");
+
+        fetch(API_URL)
+          .then((res) => res.json())
+          .then((data) => {
+            let html = "";
+
+            data.reverse().forEach((item) => {
+              html += `
+        <tr class="border-b hover:bg-gray-50">
+          <td class="p-3">${item.title}</td>
+          <td class="p-3">${item.message}</td>
+          <td class="p-3">${item.date}</td>
+          <td class="p-3 flex gap-2">
+            <button onclick="editData('${item.id}','${safeText(item.title)}','${safeText(item.message)}')" 
+              class="bg-blue-500 text-white px-3 py-1 rounded hover:scale-105 transition">Edit</button>
+
+            <button onclick="deleteData('${item.id}')" 
+              class="bg-red-500 text-white px-3 py-1 rounded hover:scale-105 transition">Delete</button>
+          </td>
+        </tr>
+        `;
+            });
+
+            document.getElementById("dataTable").innerHTML = html;
+
+            document.getElementById("loader").classList.add("hidden");
+
+            if (btn) {
+              btn.innerText = "🔄 Refresh";
+              btn.disabled = false;
+            }
+          })
+          .catch(() => {
+            document.getElementById("loader").classList.add("hidden");
+
+            if (btn) {
+              btn.innerText = "🔄 Refresh";
+              btn.disabled = false;
+            }
+
+            alert("❌ Failed to load data");
+          });
+      }
+
+      // ✅ ADD NOTIFICATION
       function addNotification() {
         let title = document.getElementById("title").value.trim();
         let message = document.getElementById("message").value.trim();
 
         if (!title || !message) {
-          alert("Fill all fields");
-
+          alert("⚠ Fill all fields");
           return;
         }
 
@@ -388,133 +509,296 @@
 
         fetch(API_URL, {
           method: "POST",
-
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8", // 🔥 important
+          },
           body: JSON.stringify({
+            action: "add",
             title: title,
-
             message: message,
-
-            date: new Date().toLocaleString(),
           }),
         })
           .then((res) => res.json())
-
-          .then((data) => {
+          .then(() => {
             document.getElementById("loader").classList.add("hidden");
 
-            document.getElementById("successPopup").classList.remove("hidden");
-
+            // clear form
             document.getElementById("title").value = "";
             document.getElementById("message").value = "";
+
+            // show popup
+            document.getElementById("successPopup").classList.remove("hidden");
+
+            // refresh data
+            refreshData();
           })
-
-          .catch((err) => {
+          .catch(() => {
             document.getElementById("loader").classList.add("hidden");
-
-            alert("Error sending notification");
+            alert("❌ Error adding notification");
           });
       }
-    </script>
 
+      // ✅ DELETE
+      function deleteData(id) {
+        if (!confirm("⚠ Delete this notification?")) return;
+
+        document.getElementById("loader").classList.remove("hidden");
+
+        fetch(API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: JSON.stringify({
+            action: "delete",
+            id: id,
+          }),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            document.getElementById("loader").classList.add("hidden");
+            refreshData();
+          })
+          .catch(() => {
+            document.getElementById("loader").classList.add("hidden");
+            alert("❌ Delete failed");
+          });
+      }
+
+      // ✅ EDIT
+      function editData(id, title, message) {
+        let newTitle = prompt("Edit Title", title);
+        let newMsg = prompt("Edit Message", message);
+
+        if (!newTitle || !newMsg) return;
+
+        document.getElementById("loader").classList.remove("hidden");
+
+        fetch(API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: JSON.stringify({
+            action: "edit",
+            id: id,
+            title: newTitle,
+            message: newMsg,
+          }),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            document.getElementById("loader").classList.add("hidden");
+            refreshData();
+          })
+          .catch(() => {
+            document.getElementById("loader").classList.add("hidden");
+            alert("❌ Edit failed");
+          });
+      }
+
+      // ✅ CLOSE POPUP
+      function closePopup() {
+        document.getElementById("successPopup").classList.add("hidden");
+      }
+
+      // ✅ AUTO LOAD
+      window.onload = () => {
+        refreshData();
+      };
+    </script>
     <script>
       function closePopup() {
         document.getElementById("successPopup").classList.add("hidden");
       }
     </script>
 
-    <!--SOURCE CODE HIDE SCRIPT -->
+     <!-- ADVANCED SOURCE PROTECTION -->
+  
+<script>
 
-    <script>
-      // Disable Right Click
-      document.addEventListener("contextmenu", function (e) {
-        e.preventDefault();
-        showWarning();
-      });
+document.addEventListener("contextmenu", e=>{
+e.preventDefault();
+triggerSecurity();
+});
 
-      // Disable Keyboard Shortcuts
-      document.onkeydown = function (e) {
-        if (e.keyCode == 123) {
-          // F12
-          showWarning();
-          return false;
-        }
+document.addEventListener("keydown",function(e){
 
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-          // Ctrl+Shift+I
-          showWarning();
-          return false;
-        }
+if(e.key==="F12"){triggerSecurity();}
 
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-          // Ctrl+Shift+J
-          showWarning();
-          return false;
-        }
+if(e.ctrlKey && e.shiftKey && e.key==="I"){triggerSecurity();}
 
-        if (e.ctrlKey && e.keyCode == 85) {
-          // Ctrl+U
-          showWarning();
-          return false;
-        }
+if(e.ctrlKey && e.shiftKey && e.key==="J"){triggerSecurity();}
 
-        if (e.ctrlKey && e.keyCode == 67) {
-          // Ctrl+C
-          showWarning();
-          return false;
-        }
-      };
+if(e.ctrlKey && e.key==="U"){triggerSecurity();}
 
-      // DevTools detection
-      setInterval(function () {
-        const widthThreshold = window.outerWidth - window.innerWidth > 160;
-        const heightThreshold = window.outerHeight - window.innerHeight > 160;
+});
 
-        if (widthThreshold || heightThreshold) {
-          showWarning();
-        }
-      }, 1000);
+setInterval(function(){
 
-      // Warning Message
+const devtools =
+window.outerWidth - window.innerWidth > 160 ||
+window.outerHeight - window.innerHeight > 160;
 
-      function showWarning() {
-        document.body.innerHTML = `
-         <div style="
-         height:100vh;
-         display:flex;
-         align-items:center;
-         justify-content:center;
-         flex-direction:column;
-         background:#000;
-         color:#fff;
-         font-family:sans-serif;
-         text-align:center;
-         padding:20px;
-         ">
-         
-         <h1 style="font-size:40px;margin-bottom:20px;">
-         ⚠ ACCESS DENIED
-         </h1>
-         
-         <p style="font-size:18px;max-width:600px;">
-         Inspect Element / Developer Tools detected.<br><br>
-         
-         This website is protected by security system.<br>
-         Copying source code is strictly prohibited.
-         </p>
-         
-         <p style="margin-top:20px;font-size:16px;color:#aaa;">
-         © YK OFFICIAL - Yegnesh Kamble<br>
-         Founder: <b>Yegnesh Kamble</b> <br>
-         Phone: <b>7219274312</b><br>
-         Email: <b>Yegnesh7219@gmail.com</b>
-         </p>
-         
-         <p style="margin-top:20px;font-size:16px;color:#aaa;">
-         <b>© 2026 YK OFFICIAL. All rights reserved.</b>
-         </p>
-         </div>
-         `;
-      }
-    </script>
+if(devtools){
+triggerSecurity();
+}
+
+},1000);
+
+function triggerSecurity(){
+
+document.body.innerHTML = `
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#020617,#0f172a,#020617);
+background-size:300% 300%;
+animation:bgMove 8s infinite alternate;
+font-family:system-ui;
+color:white;
+}
+
+.security-box{
+position:relative;
+text-align:center;
+padding:50px;
+border-radius:16px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 40px rgba(0,0,0,0.6);
+max-width:600px;
+animation:fadeIn .6s ease;
+}
+
+.close-btn{
+position:absolute;
+top:12px;
+right:16px;
+font-size:20px;
+cursor:pointer;
+color:#94a3b8;
+}
+
+.close-btn:hover{
+color:white;
+}
+
+.icon{
+font-size:60px;
+margin-bottom:15px;
+animation:pulse 1.5s infinite;
+}
+
+.title{
+font-size:32px;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.subtitle{
+font-size:15px;
+color:#cbd5f5;
+line-height:1.6;
+}
+
+.reload{
+margin-top:15px;
+font-size:18px;
+color:#38bdf8;
+}
+
+.footer{
+margin-top:25px;
+font-size:14px;
+color:#94a3b8;
+}
+
+.brand{
+margin-top:20px;
+font-weight:600;
+color:#38bdf8;
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.15)}
+100%{transform:scale(1)}
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%}
+100%{background-position:100% 50%}
+}
+
+</style>
+
+<div class="security-box">
+
+<div class="close-btn" onclick="location.reload()">✕</div>
+
+<div class="icon">⚠</div>
+
+<div class="title">Developer Tools Detected</div>
+
+<div class="subtitle">
+
+Access to developer tools or page source has been blocked.<br><br>
+
+This website is protected by <b>YK OFFICIAL Security</b>.<br>
+Unauthorized inspection or copying of source code is not allowed.
+
+</div>
+
+<div class="reload">
+Reloading in <span id="count">5</span> seconds...
+</div>
+
+<div class="footer">
+Founder : <b>Yegnesh Kamble</b><br>
+Phone : <b>7219274312</b><br>
+Email : <b>Yegnesh7219@gmail.com</b>
+</div>
+
+<div class="brand">
+© 2026 YK OFFICIAL
+</div>
+
+</div>
+`;
+
+let sec = 5;
+
+let timer = setInterval(function(){
+
+sec--;
+
+const el=document.getElementById("count");
+
+if(el){el.innerText=sec;}
+
+if(sec<=0){
+clearInterval(timer);
+location.reload();
+}
+
+},1000);
+
+}
+
+</script>
+
   </body>
 </html>
