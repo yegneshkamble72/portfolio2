@@ -494,10 +494,10 @@
               >
 
               <a
-                href="ykvideoplayer.html"
+                href="gallery.html"
                 class="nav-link text-white w-full h-8 px-6 py-1 bg-gradient-to-r from-slate-700 to-gray-900 rounded-lg font-semibold hover:shadow-lg transition-all"
                 target="_blank"
-                >Player</a
+                >Gallery</a
               >
 
               <a
@@ -618,21 +618,32 @@
 
           <div class="mt-8 pt-6 border-t border-gray-200">
             <a
-              href="ykvideoplayer.html"
+              href="gallery.html"
               class="w-full bg-gradient-to-r from-slate-700 to-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center space-x-2"
               target="_blank"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 640 640"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
                 class="w-5 h-5"
-                fill="currentColor"
               >
-                <path
-                  d="M128 128C92.7 128 64 156.7 64 192L64 448C64 483.3 92.7 512 128 512L384 512C419.3 512 448 483.3 448 448L448 192C448 156.7 419.3 128 384 128L128 128zM496 400L569.5 458.8C573.7 462.2 578.9 464 584.3 464C597.4 464 608 453.4 608 440.3L608 199.7C608 186.6 597.4 176 584.3 176C578.9 176 573.7 177.8 569.5 181.2L496 240L496 400z"
+                <rect
+                  x="3"
+                  y="3"
+                  width="18"
+                  height="18"
+                  rx="2"
+                  ry="2"
+                  stroke-width="2"
                 />
+
+                <circle cx="8.5" cy="8.5" r="1.5" stroke-width="2" />
+
+                <path stroke-width="2" d="M21 15l-5-5L5 21" />
               </svg>
-              <span>Video Player</span>
+              <span>Gallery</span>
             </a>
           </div>
 
@@ -701,6 +712,16 @@
               </a>
             </div>
           </div>
+          <br /><br />
+          <div>
+            <p class="text-sm text-gray-500 mb-3">
+              © <span id="year"></span> YK Official.
+            </p>
+          </div>
+          <script>
+            document.getElementById("year").textContent =
+              new Date().getFullYear();
+          </script>
         </div>
       </div>
 
@@ -752,7 +773,9 @@
               </span>
 
               <a
-                href="doc.html" target="_blank" rel="noopener noreferrer"
+                href="doc.html"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 backdrop-blur-md text-white text-sm border border-white/20 whitespace-nowrap hover:bg-white/20 transition"
               >
                 <i
@@ -1838,108 +1861,206 @@
       <!-- Footer -->
 
       <footer class="bg-black text-gray-300 pt-14 pb-8 px-5 relative">
+        <div class="max-w-7xl mx-auto">
+          <!-- MAIN GRID -->
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-11 text-center">
+            <!-- BRAND -->
+            <div class="md:text-left">
+              <div>
+                <h2 class="text-2xl font-bold text-white mb-3">
+                  YK <span class="text-blue-400">OFFICIAL</span>
+                </h2>
+              </div>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                YK OFFICIAL specializes in developing scalable, responsive and
+                professional web solutions with cutting-edge design and seamless
+                performance.
+              </p>
+            </div>
 
-  <div class="max-w-7xl mx-auto">
+            <!-- LINKS -->
+            <div>
+              <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+              <div class="space-y-2 text-sm">
+                <a href="#home" class="block hover:text-purple-400 transition"
+                  >Home</a
+                >
+                <a href="#about" class="block hover:text-purple-400 transition"
+                  >About</a
+                >
+                <a href="#skills" class="block hover:text-purple-400 transition"
+                  >Skills</a
+                >
+                <a
+                  href="#projects"
+                  class="block hover:text-purple-400 transition"
+                  >Projects</a
+                >
+                <a
+                  href="#contact"
+                  class="block hover:text-purple-400 transition"
+                  >Contact</a
+                >
+              </div>
+            </div>
 
-    <!-- MAIN GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+            <!-- LINKS -->
+            <div>
+              <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+              <div class="space-y-2 text-sm">
+                <a
+                  onclick="toggleNotify()"
+                  class="cursor-pointer block hover:text-purple-400 transition"
+                  >Notifications</a
+                >
+                <a
+                  href="doc.html"
+                  target="_blank"
+                  class="block hover:text-purple-400 transition"
+                  >Documentation</a
+                >
+                <a
+                  href="gallery.html"
+                  target="_blank"
+                  class="block hover:text-purple-400 transition"
+                  >Gallery</a
+                >
+                <a
+                  href="resume.html"
+                  target="_blank"
+                  class="block hover:text-purple-400 transition"
+                  >Resume</a
+                >
+                <a
+                  href="ykvideoplayer.html"
+                  target="_blank"
+                  class="block hover:text-purple-400 transition"
+                >
+                  Video Player</a
+                >
+              </div>
+            </div>
 
-      <!-- BRAND -->
-      <div>
-        <h2 class="text-2xl font-bold text-white mb-3">YK <span class="text-blue-400">OFFICIAL</span></h2>
-        <p class="text-gray-400 text-sm leading-relaxed">
-          YK OFFICIAL specializes in developing scalable, responsive and professional web solutions with cutting-edge design and seamless performance.
-        </p>
-      </div>
+            <!-- CONTACT -->
+            <div class="md:text-center">
+              <h3 class="text-lg font-semibold text-white mb-4">Contact</h3>
 
-      <!-- LINKS -->
-      <div>
-        <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
-        <div class="space-y-2 text-sm">
-          <a href="#home" class="block hover:text-purple-400 transition">Home</a>
-          <a href="#about" class="block hover:text-purple-400 transition">About</a>
-          <a href="#skills" class="block hover:text-purple-400 transition">Skills</a>
-          <a href="#projects" class="block hover:text-purple-400 transition">Projects</a>
-          <a href="#contact" class="block hover:text-purple-400 transition">Contact</a>
+              <div class="space-y-2 text-sm">
+                <a
+                  href="tel:+917219274312"
+                  class="block hover:text-purple-400 transition"
+                >
+                  📞 +91 72192 74312
+                </a>
+                <a
+                  href="mailto:yegnesh7219@gmail.com"
+                  class="block hover:text-purple-400 transition"
+                >
+                  📧 yegnesh7219@gmail.com
+                </a>
+                <a
+                  href="https://www.google.com/maps?q=Tekadi,+Nagpur,+441404"
+                  target="_blank"
+                  class="block hover:text-purple-400 transition"
+                >
+                  📍 Tekadi, Nagpur, Maharashtra, India-441404
+                </a>
+              </div>
+
+              <!-- SOCIAL ICONS (SVG BACK 🔥) -->
+              <div
+                class="flex justify-center md:text-center md:justify-center space-x-5 mt-6"
+              >
+                <!-- Instagram -->
+                <a
+                  href="https://instagram.com/yegnesh.kamble"
+                  target="_blank"
+                  class="hover:text-pink-500 transition"
+                >
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 8.2A3.2 3.2 0 1112 8.8a3.2 3.2 0 010 6.4zm4.8-8.9a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0z"
+                    />
+                  </svg>
+                </a>
+
+                <!-- Facebook -->
+                <a
+                  href="https://facebook.com/yegnesh.kamble"
+                  target="_blank"
+                  class="hover:text-blue-500 transition"
+                >
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M22 12a10 10 0 10-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.5l-.4 3h-2.1v7A10 10 0 0022 12z"
+                    />
+                  </svg>
+                </a>
+
+                <!-- GitHub -->
+                <a
+                  href="https://github.com/yegneshkamble72"
+                  target="_blank"
+                  class="hover:text-gray-400 transition"
+                >
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.31-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.53.12-3.19 0 0 1.01-.32 3.3 1.23.96-.27 1.99-.4 3.01-.41 1.02.01 2.05.14 3.01.41 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.19.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"
+                    />
+                  </svg>
+                </a>
+
+                <!-- WhatsApp -->
+                <a
+                  href="https://wa.me/917219274312"
+                  target="_blank"
+                  class="hover:text-green-500 transition"
+                >
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 0a12 12 0 00-10.4 17.9L0 24l6.3-1.6A12 12 0 1012 0zm0 21.8c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-3.7 1 1-3.6-.2-.4a9.8 9.8 0 1118.4-5.1c0 5.4-4.4 9.8-9.8 9.8z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTTOM BAR -->
+          <div
+            class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between text-center gap-4"
+          >
+            <!-- COPYRIGHT -->
+            <p class="text-gray-500 text-sm">
+              © 2026 YK OFFICIAL. All rights reserved.
+            </p>
+
+            <!-- LEGAL LINKS (SHIFTED HERE ✅) -->
+            <div class="flex flex-wrap justify-center gap-4 text-sm">
+              <a
+                href="privacy.html"
+                target="_blank"
+                class="hover:text-purple-400 transition"
+                >Privacy Policy</a
+              >
+              <a
+                href="terms.html"
+                target="_blank"
+                class="hover:text-purple-400 transition"
+                >Terms & Conditions</a
+              >
+            </div>
+          </div>
         </div>
-      </div>
 
-      <!-- CONTACT -->
-      <div>
-        <h3 class="text-lg font-semibold text-white mb-4">Contact</h3>
-
-        <div class="space-y-2 text-sm">
-          <a href="tel:+917219274312" class="block hover:text-purple-400 transition">
-            📞 +91 72192 74312
-          </a>
-          <a href="mailto:yegnesh7219@gmail.com" class="block hover:text-purple-400 transition">
-            📧 yegnesh7219@gmail.com
-          </a>
-          <a href="https://www.google.com/maps?q=Tekadi,+Nagpur,+441404" target="_blank"
-            class="block hover:text-purple-400 transition">
-            📍 Nagpur, Maharashtra
-          </a>
-        </div>
-
-        <!-- SOCIAL ICONS (SVG BACK 🔥) -->
-        <div class="flex justify-center md:justify-start space-x-5 mt-6">
-
-          <!-- Instagram -->
-          <a href="https://instagram.com/yegnesh.kamble" target="_blank" class="hover:text-pink-500 transition">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 8.2A3.2 3.2 0 1112 8.8a3.2 3.2 0 010 6.4zm4.8-8.9a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0z"/>
-            </svg>
-          </a>
-
-          <!-- Facebook -->
-          <a href="https://facebook.com/yegnesh.kamble" target="_blank" class="hover:text-blue-500 transition">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M22 12a10 10 0 10-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.5l-.4 3h-2.1v7A10 10 0 0022 12z"/>
-            </svg>
-          </a>
-
-          <!-- GitHub -->
-          <a href="https://github.com/yegneshkamble72" target="_blank" class="hover:text-gray-400 transition">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.31-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.53.12-3.19 0 0 1.01-.32 3.3 1.23.96-.27 1.99-.4 3.01-.41 1.02.01 2.05.14 3.01.41 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.19.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
-            </svg>
-          </a>
-
-          <!-- WhatsApp -->
-          <a href="https://wa.me/917219274312" target="_blank" class="hover:text-green-500 transition">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0a12 12 0 00-10.4 17.9L0 24l6.3-1.6A12 12 0 1012 0zm0 21.8c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-3.7 1 1-3.6-.2-.4a9.8 9.8 0 1118.4-5.1c0 5.4-4.4 9.8-9.8 9.8z"/>
-            </svg>
-          </a>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- BOTTOM BAR -->
-    <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between text-center gap-4">
-
-      <!-- COPYRIGHT -->
-      <p class="text-gray-500 text-sm">
-        © 2026 Yegnesh Kamble. All rights reserved.
-      </p>
-
-      <!-- LEGAL LINKS (SHIFTED HERE ✅) -->
-      <div class="flex flex-wrap justify-center gap-4 text-sm">
-        <a href="privacy.html" target="_blank" class="hover:text-purple-400 transition">Privacy Policy</a>
-        <a href="terms.html" target="_blank" class="hover:text-purple-400 transition">Terms & Conditions</a>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- BACK TO TOP -->
-  <button onclick="scrollToTop()"
-    class="fixed bottom-5 right-5 bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-full shadow-lg transition hover:scale-110">
-    ↑
-  </button>
-
-</footer>
+        <!-- BACK TO TOP -->
+        <button
+          onclick="scrollToTop()"
+          class="fixed bottom-5 right-5 bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-full shadow-lg transition hover:scale-110"
+        >
+          ↑
+        </button>
+      </footer>
     </div>
 
     <!-- Resume Modal -->
@@ -2001,36 +2122,29 @@
     <!-- Toast Notification -->
     <div id="toast" class="toast"></div>
 
-
-
-
-    
-
     <!-- QR PANEL -->
-<div id="qrPanel"
-class="fixed top-1/2 -left-80 transform -translate-y-1/2
-w-40 bg-indigo-600
-text-white p-4 rounded-r-2xl shadow-2xl
-transition-all duration-500 z-10">
-
-  <!-- Arrow Button -->
-  <button onclick="toggleQR()"
-    class="absolute -right-6 top-7 -translate-y-1/2
-    bg-indigo-600 w-6 h-7 rounded-r-lg z-1 flex items-center justify-center shadow">
+    <div
+      id="qrPanel"
+      class="fixed top-1/2 -left-80 transform -translate-y-1/2 w-40 bg-indigo-600 text-white p-4 rounded-r-2xl shadow-2xl transition-all duration-500 z-10"
     >
-  </button>
+      <!-- Arrow Button -->
+      <button
+        onclick="toggleQR()"
+        class="absolute -right-6 top-7 -translate-y-1/2 bg-indigo-600 w-6 h-7 rounded-r-lg z-1 flex items-center justify-center shadow"
+      >
+        >
+      </button>
 
-  <!-- QR Content -->
-  <div class="text-center">
-    <img 
-      src="https://i.ibb.co/4Zyq659Y/qr-code.png"
-      class="mx-auto rounded-lg bg-white p-2"
-    />
+      <!-- QR Content -->
+      <div class="text-center">
+        <img
+          src="https://i.ibb.co/4Zyq659Y/qr-code.png"
+          class="mx-auto rounded-lg bg-white p-2"
+        />
 
-    <p class="mt-3 font-semibold text-s">Scan Me</p>
-  </div>
-
-</div>
+        <p class="mt-3 font-semibold text-s">Scan Me</p>
+      </div>
+    </div>
 
     <script>
       function scrollToTop() {
@@ -2480,69 +2594,6 @@ Fill Form Again
     </script>
 
     <script>
-      const translations = {
-        en: {
-          home: "Home",
-          about: "About",
-          skills: "Skills",
-          projects: "Projects",
-          contact: "Contact",
-          viewProjects: "View Projects",
-          downloadResume: "Download Resume",
-          aboutMe: "About Me",
-          mySkills: "My Skills",
-          myProjects: "My Projects",
-          getInTouch: "Get In Touch",
-          contactInfo: "Contact Information",
-          followMe: "Follow Me",
-          sendMessage: "Send Message",
-          quickLinks: "Quick Links",
-          more: "More",
-          connect: "Connect",
-          backToTop: "Back to Top ↑",
-        },
-        hi: {
-          home: "होम",
-          about: "परिचय",
-          skills: "कौशल",
-          projects: "परियोजनाएं",
-          contact: "संपर्क",
-          viewProjects: "परियोजनाएं देखें",
-          downloadResume: "रिज्यूमे डाउनलोड करें",
-          aboutMe: "मेरे बारे में",
-          mySkills: "मेरे कौशल",
-          myProjects: "मेरी परियोजनाएं",
-          getInTouch: "संपर्क करें",
-          contactInfo: "संपर्क जानकारी",
-          followMe: "मुझे फॉलो करें",
-          sendMessage: "संदेश भेजें",
-          quickLinks: "त्वरित लिंक",
-          more: "अधिक",
-          connect: "जुड़ें",
-          backToTop: "शीर्ष पर वापस ↑",
-        },
-        mr: {
-          home: "मुख्यपृष्ठ",
-          about: "माहिती",
-          skills: "कौशल्ये",
-          projects: "प्रकल्प",
-          contact: "संपर्क",
-          viewProjects: "प्रकल्प पहा",
-          downloadResume: "रिझ्युमे डाउनलोड करा",
-          aboutMe: "माझ्याबद्दल",
-          mySkills: "माझी कौशल्ये",
-          myProjects: "माझे प्रकल्प",
-          getInTouch: "संपर्कात रहा",
-          contactInfo: "संपर्क माहिती",
-          followMe: "मला फॉलो करा",
-          sendMessage: "संदेश पाठवा",
-          quickLinks: "द्रुत दुवे",
-          more: "अधिक",
-          connect: "जोडा",
-          backToTop: "वर परत या ↑",
-        },
-      };
-
       // Date and time update
       function updateDateTime() {
         const now = new Date();
@@ -2679,17 +2730,16 @@ Fill Form Again
           title: "IRON FORGE GYM",
           description:
             "Where steel meets will. Transform your body, ignite your spirit, and forge your legacy.",
-          image: "https://i.ibb.co/p6qks9kF/Chat-GPT-Image-Mar-18-2026-11-39-13-PM.png",
-          demo_link:
-            "https://yegneshkamble72.github.io/IRON-FORGE-GYM/",
+          image:
+            "https://i.ibb.co/p6qks9kF/Chat-GPT-Image-Mar-18-2026-11-39-13-PM.png",
+          demo_link: "https://yegneshkamble72.github.io/IRON-FORGE-GYM/",
         },
         {
           title: "UPI QR GENERATOR",
           description:
             "Secure and smart UPI QR generator for fast, seamless digital payments.",
           image: "https://i.ibb.co/xKw2S1mk/Screenshot-2026-03-28-130859.png",
-          demo_link:
-            "https://yegneshkamble72.github.io/upiqrgenerator/",
+          demo_link: "https://yegneshkamble72.github.io/upiqrgenerator/",
         },
       ];
 
@@ -2858,53 +2908,53 @@ Fill Form Again
         const popup = document.createElement("div");
 
         popup.innerHTML = `
-  <div style="
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;">
-  
-  <div style="
-  background:#fff;
-  padding:30px;
-  border-radius:15px;
-  text-align:center;
-  width:90%;
-  max-width:420px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);">
-  
-  <h2 style="margin-bottom:10px;color:#6d28d9;">
-  Thank You, ${name}!
-  </h2>
-
-  <p style="color:#333;margin-bottom:10px;">
-  Your message has been sent successfully.
-  </p>
-
-  <p style="font-weight:bold;margin-bottom:20px;">
-  Request ID : ${id}
-  </p>
-
-  <button onclick="this.closest('.popup-container').remove()" 
-  style="
-  background:#6d28d9;
-  color:white;
-  padding:10px 25px;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;">
-  Close
-  </button>
-
-  </div>
-  </div>
-  `;
+         <div style="
+         position:fixed;
+         top:0;
+         left:0;
+         width:100%;
+         height:100%;
+         background:rgba(0,0,0,0.6);
+         display:flex;
+         justify-content:center;
+         align-items:center;
+         z-index:9999;">
+         
+         <div style="
+         background:#fff;
+         padding:30px;
+         border-radius:15px;
+         text-align:center;
+         width:90%;
+         max-width:420px;
+         box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+         
+         <h2 style="margin-bottom:10px;color:#6d28d9;">
+         Thank You, ${name}!
+         </h2>
+       
+         <p style="color:#333;margin-bottom:10px;">
+         Your message has been sent successfully.
+         </p>
+       
+         <p style="font-weight:bold;margin-bottom:20px;">
+         Request ID : ${id}
+         </p>
+       
+         <button onclick="this.closest('.popup-container').remove()" 
+         style="
+         background:#6d28d9;
+         color:white;
+         padding:10px 25px;
+         border:none;
+         border-radius:6px;
+         cursor:pointer;">
+         Close
+         </button>
+       
+         </div>
+         </div>
+         `;
 
         popup.classList.add("popup-container");
         document.body.appendChild(popup);
@@ -3082,78 +3132,76 @@ Fill Form Again
       })();
     </script>
 
+    <!--QR CODE-->
 
+    <script>
+      let panel = document.getElementById("qrPanel");
+      let visible = false;
 
+      function showQR() {
+        panel.classList.remove("-left-80");
+        panel.classList.add("left-0");
+        visible = true;
+      }
 
+      function hideQR() {
+        panel.classList.remove("left-0");
+        panel.classList.add("-left-80");
+        visible = false;
+      }
 
-  <!--QR CODE-->
+      function toggleQR() {
+        visible ? hideQR() : showQR();
+      }
 
-  <script>
-  let panel = document.getElementById("qrPanel");
-  let visible = false;
+      // Auto show every 10 sec
+      setInterval(() => {
+        showQR();
 
-  function showQR() {
-    panel.classList.remove("-left-80");
-    panel.classList.add("left-0");
-    visible = true;
-  }
-
-  function hideQR() {
-    panel.classList.remove("left-0");
-    panel.classList.add("-left-80");
-    visible = false;
-  }
-
-  function toggleQR() {
-    visible ? hideQR() : showQR();
-  }
-
-  // Auto show every 10 sec
-  setInterval(() => {
-    showQR();
-
-    setTimeout(() => {
-      hideQR();
-    }, 5000); // 10 sec visible
-  }, 10000); // every 5 sec
-</script>
+        setTimeout(() => {
+          hideQR();
+        }, 5000); // 10 sec visible
+      }, 10000); // every 5 sec
+    </script>
 
     <!-- ADVANCED SOURCE PROTECTION -->
-  
-<script>
 
-document.addEventListener("contextmenu", e=>{
-e.preventDefault();
-triggerSecurity();
-});
+    <script>
+      document.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        triggerSecurity();
+      });
 
-document.addEventListener("keydown",function(e){
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "F12") {
+          triggerSecurity();
+        }
 
-if(e.key==="F12"){triggerSecurity();}
+        if (e.ctrlKey && e.shiftKey && e.key === "I") {
+          triggerSecurity();
+        }
 
-if(e.ctrlKey && e.shiftKey && e.key==="I"){triggerSecurity();}
+        if (e.ctrlKey && e.shiftKey && e.key === "J") {
+          triggerSecurity();
+        }
 
-if(e.ctrlKey && e.shiftKey && e.key==="J"){triggerSecurity();}
+        if (e.ctrlKey && e.key === "U") {
+          triggerSecurity();
+        }
+      });
 
-if(e.ctrlKey && e.key==="U"){triggerSecurity();}
+      setInterval(function () {
+        const devtools =
+          window.outerWidth - window.innerWidth > 160 ||
+          window.outerHeight - window.innerHeight > 160;
 
-});
+        if (devtools) {
+          triggerSecurity();
+        }
+      }, 1000);
 
-setInterval(function(){
-
-const devtools =
-window.outerWidth - window.innerWidth > 160 ||
-window.outerHeight - window.innerHeight > 160;
-
-if(devtools){
-triggerSecurity();
-}
-
-},1000);
-
-function triggerSecurity(){
-
-document.body.innerHTML = `
+      function triggerSecurity() {
+        document.body.innerHTML = `
 
 <style>
 
@@ -3284,27 +3332,23 @@ Email : <b>Yegnesh7219@gmail.com</b>
 </div>
 `;
 
-let sec = 5;
+        let sec = 5;
 
-let timer = setInterval(function(){
+        let timer = setInterval(function () {
+          sec--;
 
-sec--;
+          const el = document.getElementById("count");
 
-const el=document.getElementById("count");
+          if (el) {
+            el.innerText = sec;
+          }
 
-if(el){el.innerText=sec;}
-
-if(sec<=0){
-clearInterval(timer);
-location.reload();
-}
-
-},1000);
-
-}
-
-</script>
-
-
+          if (sec <= 0) {
+            clearInterval(timer);
+            location.reload();
+          }
+        }, 1000);
+      }
+    </script>
   </body>
 </html>
