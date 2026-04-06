@@ -3768,6 +3768,233 @@ Fill Form Again
       }, 10000); // every 5 sec
     </script>
 
+
+
+     <!-- Accept cookies -->
+
+    <div
+      id="cookieBox"
+      class="fixed bottom-4 left-1/2 -translate-x-1/2 w-[92%] max-w-[650px] bg-white/70 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] rounded-[24px] p-6 z-[9999] border border-white/50 hidden opacity-0 translate-y-10 transition-all duration-700 ease-out"
+    >
+      <div class="flex flex-col md:flex-row gap-6 items-start">
+        <div class="flex-1">
+          <div class="flex items-center justify-between mb-2">
+            <h2
+              class="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent"
+            >
+              Accept Cookie
+            </h2>
+            <button
+              onclick="closeCookies()"
+              class="md:hidden text-gray-400 hover:text-gray-600"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+            We use cookies to personalize your experience. By clicking
+            <span class="font-bold text-gray-800">"Accept All"</span>, you agree
+            to our data usage. Check our
+            <a
+              href="privacy.html"
+              class="underline hover:text-blue-600 transition"
+              >Privacy Policy</a
+            >.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3 mt-6 justify-end">
+            <button
+              onclick="rejectCookies()"
+              class="order-3 sm:order-1 px-5 py-2.5 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-200/50 transition-all active:scale-95"
+            >
+              Reject All
+            </button>
+
+            <button
+              onclick="openSettings()"
+              class="order-2 sm:order-2 px-5 py-2.5 rounded-xl text-sm font-medium border border-blue-200 text-blue-600 hover:bg-blue-50 transition-all active:scale-95"
+            >
+              Preference
+            </button>
+
+            <button
+              onclick="acceptCookies()"
+              class="order-1 sm:order-3 px-8 py-2.5 rounded-xl text-sm font-bold bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-200 transition-all active:scale-95"
+            >
+              Accept All
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="cookieSettings"
+      class="fixed inset-0 bg-gray-900/40 backdrop-blur-md flex items-center justify-center hidden z-[10000] p-4"
+    >
+      <div
+        class="bg-white rounded-[32px] shadow-2xl p-8 w-full max-w-md transform transition-all scale-95 opacity-0 duration-300"
+        id="settingsContent"
+      >
+        <div class="text-center mb-8">
+          <div
+            class="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"
+          >
+            ⚙️
+          </div>
+          <h2 class="text-2xl font-bold text-gray-800">Privacy Preference</h2>
+          <p class="text-gray-500 text-sm mt-1">
+            Manage how your data is used.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <div
+            class="flex items-center justify-between p-4 rounded-2xl bg-gray-50 border border-gray-100"
+          >
+            <div>
+              <p class="font-bold text-gray-800 text-sm">Essential</p>
+              <p class="text-[12px] text-gray-500">
+                Required for site to work.
+              </p>
+            </div>
+            <div class="relative inline-block w-10 h-6">
+              <input
+                type="checkbox"
+                checked
+                disabled
+                class="peer appearance-none w-10 h-6 rounded-full bg-blue-200 checked:bg-blue-600 transition-colors cursor-not-allowed"
+              />
+              <span
+                class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform translate-x-4"
+              ></span>
+            </div>
+          </div>
+
+          <label
+            class="flex items-center justify-between p-4 rounded-2xl bg-gray-50 border border-gray-100 cursor-pointer hover:border-blue-200 transition"
+          >
+            <div>
+              <p class="font-bold text-gray-800 text-sm">Analytics</p>
+              <p class="text-[12px] text-gray-500">Help us improve the site.</p>
+            </div>
+            <input
+              type="checkbox"
+              id="analytics"
+              class="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 transition"
+            />
+          </label>
+
+          <label
+            class="flex items-center justify-between p-4 rounded-2xl bg-gray-50 border border-gray-100 cursor-pointer hover:border-blue-200 transition"
+          >
+            <div>
+              <p class="font-bold text-gray-800 text-sm">Marketing</p>
+              <p class="text-[12px] text-gray-500">
+                Personalized advertisements.
+              </p>
+            </div>
+            <input
+              type="checkbox"
+              id="marketing"
+              class="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 transition"
+            />
+          </label>
+        </div>
+
+        <div class="flex gap-3 mt-8">
+          <button
+            onclick="closeSettings()"
+            class="flex-1 px-4 py-3 border border-gray-200 rounded-xl font-medium text-gray-600 hover:bg-gray-50 transition"
+          >
+            Cancel
+          </button>
+          <button
+            onclick="savePreferences()"
+            class="flex-1 px-4 py-3 bg-gray-900 text-white rounded-xl font-medium hover:bg-black transition shadow-lg"
+          >
+            Save Settings
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const cookieBox = document.getElementById("cookieBox");
+      const settingsBox = document.getElementById("cookieSettings");
+      const settingsContent = document.getElementById("settingsContent");
+
+      window.onload = () => {
+        if (!localStorage.getItem("yk_cookie_consent")) {
+          setTimeout(() => {
+            cookieBox.classList.remove("hidden");
+            // Trigger animation after removing hidden
+            requestAnimationFrame(() => {
+              cookieBox.classList.remove("opacity-0", "translate-y-10");
+            });
+          }, 1000);
+        }
+      };
+
+      function hideBanner() {
+        cookieBox.classList.add("opacity-0", "translate-y-10");
+        setTimeout(() => cookieBox.classList.add("hidden"), 500);
+      }
+
+      function acceptCookies() {
+        localStorage.setItem("yk_cookie_consent", "all");
+        hideBanner();
+      }
+
+      function rejectCookies() {
+        localStorage.setItem("yk_cookie_consent", "rejected");
+        hideBanner();
+      }
+
+      function openSettings() {
+        settingsBox.classList.remove("hidden");
+        setTimeout(() => {
+          settingsContent.classList.remove("scale-95", "opacity-0");
+        }, 10);
+      }
+
+      function closeSettings() {
+        settingsContent.classList.add("scale-95", "opacity-0");
+        setTimeout(() => settingsBox.classList.add("hidden"), 300);
+      }
+
+      function savePreferences() {
+        const prefs = {
+          analytics: document.getElementById("analytics").checked,
+          marketing: document.getElementById("marketing").checked,
+          timestamp: new Date().getTime(),
+        };
+        localStorage.setItem("yk_cookie_consent", JSON.stringify(prefs));
+        closeSettings();
+        hideBanner();
+      }
+
+      function closeCookies() {
+        hideBanner();
+      }
+    </script>
+
+
+    
     <!-- ADVANCED SOURCE PROTECTION -->
 
     <script>
