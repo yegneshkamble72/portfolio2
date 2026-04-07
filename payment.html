@@ -69,6 +69,73 @@
 </head>
 <body class="p-6 md:p-12 bg-slate-50">
 
+    <!-- PAYMENT LOADER -->
+<div id="paymentLoader" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 backdrop-blur-lg">
+
+  <!-- Glass Card -->
+  <div class="relative w-full max-w-sm p-8 rounded-3xl bg-white/5 border border-white/10 shadow-2xl backdrop-blur-xl text-center">
+
+    <!-- Glow Ring -->
+    <!-- <div class="absolute inset-0 flex items-center justify-center">
+      <div class="w-40 h-40 rounded-full border-4 border-cyan-400/20 animate-ping"></div>
+    </div> -->
+
+    <!-- Animated Loader Core -->
+    <div class="relative flex items-center justify-center mb-6">
+      <div class="w-20 h-20 rounded-full border-4 border-t-cyan-400 border-b-purple-500 border-l-transparent border-r-transparent animate-spin"></div>
+    </div>
+
+    <!-- Title -->
+    <h2 class="text-xl font-semibold text-white tracking-wide">
+      Processing Payment
+    </h2>
+
+    <!-- Subtitle -->
+    <p class="text-sm text-gray-400 mt-2">
+      Please wait, do not refresh or close the page
+    </p>
+
+    <!-- Progress Bar -->
+    <div class="w-full h-2 bg-white/10 rounded-full mt-6 overflow-hidden">
+      <div id="progressBar" class="h-full bg-gradient-to-r from-cyan-400 to-purple-500 w-0 transition-all duration-500"></div>
+    </div>
+
+    <!-- Percentage -->
+    <p id="progressText" class="text-xs text-gray-400 mt-2">
+      0% Completed
+    </p>
+
+    <!-- Secure Badge -->
+    <div class="mt-4 flex items-center justify-center gap-2 text-green-400 text-xs">
+      🔒 Secure Payment Gateway
+    </div>
+
+  </div>
+</div>
+
+<script>
+  let progress = 0;
+  const bar = document.getElementById("progressBar");
+  const text = document.getElementById("progressText");
+
+  const interval = setInterval(() => {
+    progress += Math.floor(Math.random() * 8) + 3;
+
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(interval);
+
+      // Hide loader after complete
+      setTimeout(() => {
+        document.getElementById("paymentLoader").style.display = "none";
+      }, 800);
+    }
+
+    bar.style.width = progress + "%";
+    text.innerText = progress + "% Completed";
+  }, 400);
+</script>
+
     <header class="max-w-7xl mx-auto flex justify-between items-center mb-16">
         <div>
             <h1 class="text-3xl font-black tracking-tighter text-slate-900">Project <span class="text-indigo-600"></span></h1>
