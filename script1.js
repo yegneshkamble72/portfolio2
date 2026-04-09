@@ -102,58 +102,41 @@ function scrollToTop() {
 // Create Lucide icons
 lucide.createIcons();
 
-// FAQ LOGIC
+// FAQ DATA
+
 const faqData = {
-  q1: {
-    title: "What is the purpose of the YK OFFICIAL website?",
-    answer:
-      "YK OFFICIAL is a professional portfolio platform created to showcase projects, digital solutions, and creative work in a modern and organized way.",
-  },
-
-  q2: {
-    title: "What kind of projects are displayed on YK OFFICIAL?",
-    answer:
-      "The website highlights web development projects, UI design work, and innovative digital solutions designed to deliver modern user experiences.",
-  },
-
-  q3: {
-    title: "Can businesses collaborate with YK OFFICIAL?",
-    answer:
-      "Yes. Businesses and individuals can collaborate by contacting through the website to discuss projects, services, or digital solutions.",
-  },
-
-  q4: {
-    title: "How can visitors send inquiries or messages?",
-    answer:
-      "Visitors can easily send inquiries through the contact form available on the website. Messages are securely stored and reviewed promptly.",
-  },
-
-  q5: {
-    title: "Is the YK OFFICIAL website regularly updated with new work?",
-    answer:
-      "Yes. The platform is designed to allow regular updates so new projects, services, and improvements can be added anytime.",
-  },
-
-  q6: {
-    title: "Does the website ensure a smooth experience across devices?",
-    answer:
-      "Absolutely. YK OFFICIAL is fully optimized for mobile phones, tablets, and desktop devices.",
-  },
+  q1: { title: "What is the purpose of the YK OFFICIAL website?", answer: "YK OFFICIAL is a professional portfolio platform created to showcase projects, digital solutions, and creative work in a modern and organized way." },
+  q2: { title: "What kind of projects are displayed on YK OFFICIAL?", answer: "The website highlights web development projects, UI design work, and innovative digital solutions designed to deliver modern user experiences." },
+  q3: { title: "Can businesses collaborate with YK OFFICIAL?", answer: "Yes. Businesses and individuals can collaborate by contacting through the website to discuss projects, services, or digital solutions." },
+  q4: { title: "How can visitors send inquiries or messages?", answer: "Visitors can easily send inquiries through the contact form available on the website. Messages are securely stored and reviewed promptly." },
+  q5: { title: "Is the YK OFFICIAL website regularly updated?", answer: "Yes. The platform is designed to allow regular updates so new projects, services, and improvements can be added anytime." },
+  q6: { title: "Does the website ensure a smooth experience?", answer: "Absolutely. YK OFFICIAL is fully optimized for mobile phones, tablets, and desktop devices using a responsive mobile-first approach." },
 };
 
 function openFAQ(id) {
-  document.getElementById("faqPopup").classList.remove("hidden");
-  document.getElementById("faqPopup").classList.add("flex");
+  const popup = document.getElementById("faqPopup");
+  const content = document.getElementById("modalContent");
+  const loader = document.getElementById("popupLoader");
+  const displayArea = document.getElementById("faqDisplayArea");
 
-  document.getElementById("popupLoader").style.display = "flex";
-  document.getElementById("faqTitle").style.display = "none";
-  document.getElementById("faqAnswer").style.display = "none";
+  // Show Overlay
+  popup.classList.remove("hidden");
+  popup.classList.add("flex");
 
+  // Reset states
+  loader.style.display = "flex";
+  displayArea.classList.add("hidden");
+
+  // Trigger Animation
   setTimeout(() => {
-    document.getElementById("popupLoader").style.display = "none";
+    content.classList.remove("scale-95", "opacity-0");
+    content.classList.add("scale-100", "opacity-100");
+  }, 10);
 
-    document.getElementById("faqTitle").style.display = "block";
-    document.getElementById("faqAnswer").style.display = "block";
+  // Load Data
+  setTimeout(() => {
+    loader.style.display = "none";
+    displayArea.classList.remove("hidden");
 
     document.getElementById("faqTitle").innerText = faqData[id].title;
     document.getElementById("faqAnswer").innerText = faqData[id].answer;
@@ -161,7 +144,16 @@ function openFAQ(id) {
 }
 
 function closeFAQ() {
-  document.getElementById("faqPopup").classList.add("hidden");
+  const popup = document.getElementById("faqPopup");
+  const content = document.getElementById("modalContent");
+
+  content.classList.add("scale-95", "opacity-0");
+  content.classList.remove("scale-100", "opacity-100");
+
+  setTimeout(() => {
+    popup.classList.add("hidden");
+    popup.classList.remove("flex");
+  }, 200);
 }
 
 // NOTIFICATIONS LOGIC
@@ -306,133 +298,163 @@ document.addEventListener("touchend", () => {
 
 let formSubmitted = false;
 
+/**
+ * Toggles the Chatbox with a smooth flex transition
+ * Ensures the 'hidden' class is handled correctly for the animation
+ */
 function toggleChat() {
-  let box = document.getElementById("chatBox");
+  const box = document.getElementById("chatBox");
+  const isHidden = box.classList.contains("hidden");
 
-  box.classList.toggle("hidden");
-
-  if (!box.classList.contains("hidden")) {
-    if (!formSubmitted) {
-      addBotMessage(
-        "👋 Welcome to YK Official Support. Please fill the form below.",
-      );
+  if (isHidden) {
+    box.classList.remove("hidden");
+    box.classList.add("flex"); // Ensure flex is applied for the layout
+    
+    // Initial Greeting
+    if (!formSubmitted && document.getElementById("messages").children.length === 0) {
+      setTimeout(() => {
+        addBotMessage("👋 Welcome to **YK Official Support**. Our systems are online and ready to assist you.");
+      }, 400);
     }
+  } else {
+    box.classList.add("hidden");
+    box.classList.remove("flex");
   }
 }
 
+/**
+ * Adds a Bot message with Corporate Styling
+ */
 function addBotMessage(text) {
-  let div = document.createElement("div");
-
-  div.className = "bg-white p-3 rounded-xl shadow text-sm";
-
-  div.innerText = text;
-
-  document.getElementById("messages").appendChild(div);
-
-  scrollBottom();
-}
-
-function addUserMessage(text) {
-  let div = document.createElement("div");
-
-  div.className = "bg-green-50 p-3 rounded-xl shadow text-sm ml-auto";
-
-  div.innerHTML = text;
-
-  document.getElementById("messages").appendChild(div);
-
-  scrollBottom();
-}
-
-function addFormButton() {
-  let div = document.createElement("div");
-
+  const messagesContainer = document.getElementById("messages");
+  const div = document.createElement("div");
+  
+  div.className = "flex gap-3 animate-[fadeIn_0.3s_ease]";
   div.innerHTML = `
-         <button
-         onclick="openForm()"
-         class="bg-purple-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-purple-700 transition">
-         Fill Form Again
-         </button>
-         `;
+    <div class="w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center shrink-0 text-sm">🤖</div>
+    <div class="bg-white border border-slate-100 p-3 rounded-2xl rounded-tl-none shadow-sm text-xs text-slate-600 leading-relaxed">
+      ${text}
+    </div>
+  `;
 
-  document.getElementById("messages").appendChild(div);
+  messagesContainer.appendChild(div);
+  scrollBottom();
+}
 
+/**
+ * Adds a User message with High-Contrast Styling
+ */
+function addUserMessage(name, message) {
+  const messagesContainer = document.getElementById("messages");
+  const div = document.createElement("div");
+  
+  div.className = "flex justify-end animate-[fadeIn_0.3s_ease]";
+  div.innerHTML = `
+    <div class="bg-indigo-600 text-white p-3 rounded-2xl rounded-tr-none shadow-md text-xs max-w-[80%]">
+      <p class="font-black uppercase text-[9px] opacity-70 mb-1">${name}</p>
+      <p>${message}</p>
+    </div>
+  `;
+
+  messagesContainer.appendChild(div);
+  scrollBottom();
+}
+
+/**
+ * Shows the "Another Request" button with a professional UI
+ */
+function addFormButton() {
+  const messagesContainer = document.getElementById("messages");
+  const div = document.createElement("div");
+  
+  div.className = "flex justify-center pt-2";
+  div.innerHTML = `
+    <button
+      onclick="openForm()"
+      class="bg-slate-900 text-white px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-indigo-600 transition-all shadow-lg">
+      New Inquiry Dispatch
+    </button>
+  `;
+
+  messagesContainer.appendChild(div);
   scrollBottom();
 }
 
 function openForm() {
-  document.getElementById("chatForm").style.display = "block";
+  const form = document.getElementById("chatForm");
+  form.style.display = "block";
+  form.classList.add("animate-[fadeIn_0.4s_ease]");
 }
 
 function generateID() {
-  return "YK-" + Math.floor(Math.random() * 1000000);
+  return "YK-SYS-" + Math.floor(100000 + Math.random() * 900000);
 }
 
+/**
+ * Handles the Mail Dispatch with Error Catching
+ */
 function sendMail() {
-  let name = document.getElementById("name").value.trim();
+  // Elements
+  const nameEl = document.getElementById("name");
+  const emailEl = document.getElementById("email");
+  const phoneEl = document.getElementById("phone");
+  const msgEl = document.getElementById("message");
 
-  let email = document.getElementById("email").value.trim();
+  const name = nameEl.value.trim();
+  const email = emailEl.value.trim();
+  const phone = phoneEl.value.trim();
+  const message = msgEl.value.trim();
 
-  let phone = document.getElementById("phone").value.trim();
-
-  let message = document.getElementById("message").value.trim();
-
+  // Validation
   if (!name || !email || !phone || !message) {
-    addBotMessage("⚠️ Please fill all fields.");
-
+    addBotMessage("⚠️ **Protocol Error:** All fields are mandatory for system verification.");
     return;
   }
 
-  addUserMessage(
-    "<b>Name:</b> " +
-      name.toUpperCase() +
-      "<br><b>Message:</b> " +
-      message.toUpperCase(),
-  );
+  // Display User Entry in Chat
+  addUserMessage(name, message);
 
-  let userID = generateID();
+  const userID = generateID();
+  const templateParams = { name, email, phone, message, user_id: userID };
 
-  let templateParams = {
-    name: name,
-
-    email: email,
-
-    phone: phone,
-
-    message: message,
-
-    user_id: userID,
-  };
+  // Change Button State to Loading
+  const btn = event.target;
+  const originalText = btn.innerText;
+  btn.innerText = "ENCRYPTING...";
+  btn.disabled = true;
 
   emailjs
     .send("service_zyg352n", "template_s2su8xr", templateParams)
-
     .then(function () {
-      addBotMessage("✅ Successfully Sent!\nYour Request ID: " + userID);
-
+      addBotMessage(`✅ **Dispatch Successful**<br>Request ID: <span class="font-mono font-bold text-indigo-600">${userID}</span>`);
+      
       document.getElementById("chatForm").style.display = "none";
-
       formSubmitted = true;
 
-      addBotMessage("If you want to submit another request:");
+      setTimeout(() => {
+        addBotMessage("A summary has been sent to your email. Would you like to initiate another request?");
+        addFormButton();
+      }, 1000);
 
-      addFormButton();
-
-      document.getElementById("name").value = "";
-      document.getElementById("email").value = "";
-      document.getElementById("phone").value = "";
-      document.getElementById("message").value = "";
+      // Reset Fields
+      [nameEl, emailEl, phoneEl, msgEl].forEach(el => el.value = "");
     })
-
-    .catch(function () {
-      addBotMessage("❌ Mail Failed. Please check EmailJS settings.");
+    .catch(function (error) {
+      addBotMessage("❌ **System Failure:** Integration error. Please contact yegnesh7219@gmail.com directly.");
+      console.error("EmailJS Error:", error);
+    })
+    .finally(() => {
+      btn.innerText = originalText;
+      btn.disabled = false;
     });
 }
 
 function scrollBottom() {
-  let box = document.getElementById("messages");
-
-  box.scrollTop = box.scrollHeight;
+  const box = document.getElementById("messages");
+  box.scrollTo({
+    top: box.scrollHeight,
+    behavior: 'smooth'
+  });
 }
 
 //   VIDEO PLAYER LOGIC
@@ -699,7 +721,7 @@ function renderProjects() {
     <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full hover:animate-[shimmer_1.5s_infinite]"></div>
     
     <i class="fa-solid fa-bag-shopping text-sm"></i>
-    <span class="tracking-wide">Purchase License</span>
+    <span class="tracking-wide">Buy Now</span>
   </button>
 </div>
       </div>
