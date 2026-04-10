@@ -784,8 +784,8 @@ function renderProjectDropdown() {
     .map(
       (p, i) => `
     <button onclick="openProjectModal(${i})"
-      class="w-full text-left px-4 py-3 hover:bg-purple-50 text-gray-700 hover:text-purple-600 transition">
-      ${p.title}
+      class="w-full text-left px-4 py-3 flex items-center hover:bg-purple-50 text-gray-700 hover:text-purple-600 transition">
+     <img src="${p.image}" alt="YK" class="w-8 h-5  mr-2" />${p.title}
     </button>
   `,
     )
